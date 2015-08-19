@@ -1,0 +1,13 @@
+language: java
+deploy:
+  provider: openshift
+  user: hochardga@gmail.com
+  password:
+    secure: XUirjRvSXsZTo4sbOmQTCYo036PpaxrALUanbygh8c94L7GNlO3o3Qp+8LXyy8mU/iWq19u65CFB9QInJTwHLxwrsG8LHAHyyx/wsXKchqtrA9UFfh1h2XOY/aPy0Vkw1u1Pbl6GxX3KmvGJvEFqWb90HUdrhs1rUq2CKUTiRS4+79jxuyztY6zELFR8S4rA4K3a1OHex6yeQhq31PvP1qDkH/vbyTv+pq/69PKI8p1r6VGM22bQR4sinMKfjNpp8qlphIcGoU1CnKUdzOXw3Z75v+TrF0bTMwUpzQfoJQr8JpNSGQh786wg5dLXJkOltbyP0ZaR37ezZ7Vr5epD8JjfkLpHErqxESdumWuqYU0yKVdA633oJBee7jL70v7emelvYbxN50we3y5rshx15SY3RszcxYhhzi2lXldyebWGKnSsCzeNEVacs+Dkfwna5+zSSxNT3GgLvR+UlXhPX3Ayy601mT4iEvHX/aqfAg90m/hllo7lJ9cQx8inHALkp5LS+wNJO0s/R27zczQlf9Cndzll3+nAlR+UMA+IVJWOcLRBioorcxCL72YAhRlrYYMQkrN7dngEoslokbuQ62w39/shJtuuNWx9PxXeeFpiC5hphIOgU+1yzUWsIYzKBEXmL1jBN/XDGHnRs0tcUhimlyd957AH0dEtxUhDPdE=
+  app: cari
+  domain: 42six
+  on:
+    repo: 42sixsolutions/cari
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
