@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com._42six.cari</groupId>
+		<artifactId>cari-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>cari-web</artifactId>
+	<packaging>war</packaging>
+
+	<build>
+		<finalName>cari</finalName>
+		<plugins>
+			<plugin>
+			
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>keytool-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<id>clean</id>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+					<execution>
+						<phase>generate-resources</phase>
+						<id>generateKeyPair</id>
+						<goals>
+							<goal>generateKeyPair</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<keystore>${project.build.directory}/tomcat-ssl.keystore</keystore>
+					<dname>cn=localhost</dname>
+					<keypass>tomcat-learn</keypass>
+					<storepass>tomcat-learn</storepass>
+					<alias>tomcat-learn</alias>
+					<keyalg>RSA</keyalg>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- http port -->
+					<port>8080</port>
+					<!-- application path always starts with / -->
+					<path>/</path>
+					<!-- enable ssl (required since we're enforcing https in our web.xml) -->
+					<httpsPort>8443</httpsPort>
+					<keystoreFile>${project.build.directory}/tomcat-ssl.keystore</keystoreFile>
+					<keystorePass>tomcat-learn</keystorePass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- This is a workaround for a bug: https://github.com/eirslett/frontend-maven-plugin/issues/169 
+					https://github.com/eirslett/frontend-maven-plugin/issues/147 -->
+
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>handle-frontend-maven-plugin-bug</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<move failonerror="false" verbose="true" file="${basedir}/node/package"
+									tofile="${basedir}/node/npm" />
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<configuration>
+					<skip>${skip-node}</skip>
+				</configuration>
+				<executions>
+					<execution>
+						<id>exec-npm-install</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>exec-karma-tests</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>test-single-run</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.glassfish.jersey</groupId>
+				<artifactId>jersey-bom</artifactId>
+				<version>${jersey.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+		</dependency>
+
+		<!-- JUNIT -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<properties>
+		<jersey.version>2.18</jersey.version>
+	</properties>
+
+</project>
