@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cari.controllers').controller('cariCtrl', ["$scope", "$location", "$timeout", "DrugInfo", "Trends",
+angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$location", "$timeout", "DrugInfo", "Trends",
         function($scope, $location, $timeout, DrugInfo, Trends) {
 
     $scope.drug = {};

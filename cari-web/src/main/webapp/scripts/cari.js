@@ -12,7 +12,7 @@ angular.module('cari', [
   'cari.services'
 ]).
 config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/', { templateUrl: 'partials/home.html', controller: 'cariCtrl' });
-    $routeProvider.when('/detail/:drug', { templateUrl: 'partials/detail.html', controller: 'cariCtrl' });
+    $routeProvider.when('/', { templateUrl: 'partials/home.html', controller: 'CariCtrl' });
+    $routeProvider.when('/detail/:drug', { templateUrl: 'partials/detail.html', controller: 'CariCtrl' });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
