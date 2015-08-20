@@ -10,7 +10,6 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
         });
 
         // load data
-        console.log(JSON.stringify(geoJson));
         mapObject.data.addGeoJson(geoJson);
 
 
@@ -44,9 +43,8 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
 
         /* Functions */
         function getTootlTipContent(feature) {
-            var content = '<div>'+
-                feature.getProperty('SAMPLE_SUBMATRIX') +
-
+            var content = '<div>' +
+                feature.getProperty('events')[0]['SAMPLE_SUBMATRIX'] +
                 '</div>'
 
             return content;
