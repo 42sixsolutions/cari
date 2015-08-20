@@ -2,6 +2,7 @@ package com._42six.cari.commons.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,7 +12,16 @@ public class MeasurementRecord extends HashMap<String, String> {
 	
 	public static final List<Field> FIELD_LIST = createFieldList();
 
+	private final Date sampleDate;
 	
+	public MeasurementRecord(Date sampleDate)  {
+		this.sampleDate = sampleDate;
+	}
+	
+	public Date getSampleDate() {
+		return sampleDate;
+	}
+
 	private static List<Field> createFieldList() {
 		List<Field> list = new ArrayList<Field>();
 		
@@ -24,6 +34,7 @@ public class MeasurementRecord extends HashMap<String, String> {
 	
 	public enum MeasurementField {
 		
+		SAMPLE_DATE_TIME(true),
 		CASE_NUMBER(true),
 		SITE_EVENT_ID(true),
 		ANALYTE_NAME(true),

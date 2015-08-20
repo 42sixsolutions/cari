@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import org.geojson.FeatureCollection;
 
 import com._42six.cari.services.model.InvalidRequestException;
+import com._42six.cari.services.model.Parameters;
 import com._42six.cari.services.model.QueryRequest;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -38,6 +39,22 @@ public class CariResource extends CommonResource {
     		QueryRequest request
     		) throws IOException, InvalidRequestException {
     	return responseTranslator.getFeatures(request);
+    }
+	
+	@GET
+    @Path("/all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public FeatureCollection getAllFeatures(
+    		) throws IOException, InvalidRequestException {
+    	return responseTranslator.getAllFeatures();
+    }
+	
+	@GET
+    @Path("/list")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Parameters list(
+    		) {
+    	return responseTranslator.getParameters();
     }
 	
     @GET

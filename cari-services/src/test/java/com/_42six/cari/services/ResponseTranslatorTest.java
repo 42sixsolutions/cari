@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 
 import org.geojson.FeatureCollection;
 import org.junit.Assert;
@@ -19,7 +20,7 @@ public class ResponseTranslatorTest {
 	private static ResponseTranslator responseTranslator;
 	
 	@BeforeClass
-	public static void before() throws FileNotFoundException, IOException {
+	public static void before() throws FileNotFoundException, IOException, ParseException {
 		responseTranslator = ResponseTranslator.getInstance(new FileInputStream("src/test/resources/csv/SampleData-FirstCut.csv"));
 	}
 	
