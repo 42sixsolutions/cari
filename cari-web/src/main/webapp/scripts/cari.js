@@ -13,5 +13,6 @@ angular.module('cari', [
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'partials/home.html', controller: 'CariCtrl' });
+        $routeProvider.when('/map', { templateUrl: 'partials/map.html', controller: 'CariMapCtrl' });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

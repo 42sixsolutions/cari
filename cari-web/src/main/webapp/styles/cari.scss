@@ -96,7 +96,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 body {
-  line-height: 1; 
+  line-height: 1;
   height: 100%;
 }
 
@@ -170,7 +170,7 @@ body {
 a {
   color: $primary;
   @include transition(all 350ms ease);
-  
+
   &:hover {
     color: darken($primary,15%);
   }
@@ -195,7 +195,7 @@ h2 {
     text-transform: none;
     font-size: 11px;
     margin-left: 10px;
-    
+
     i {
       position: relative;
       top: -2px;
@@ -227,7 +227,7 @@ img {
 	width: 100% !important;
 	height: auto;
 	text-align: left;
-	
+
 	.chosen-single,
 	.chosen-single:hover,
 	.chosen-single:focus,
@@ -242,9 +242,9 @@ img {
 		@include borderradius(5px);
     box-shadow: 0 0 0 #fff inset, 0 0 0 rgba(0,0,0,0);
     font-size: 14px;
-    
+
     div { display: none; }
-  		
+
 		span {
 			color: $textcolor;
 			padding: 0 20px 0 20px;
@@ -254,7 +254,7 @@ img {
       color: lighten($textcolor,15%);
 		}
 	}
-	
+
 	.chosen-drop {
 		background: $formcolor;
 		border: $border-default;
@@ -266,10 +266,10 @@ img {
 	  box-shadow: none;
 		@include borderradius(0 0 5px 5px);
 		z-index: 5;
-		
+
 		.chosen-search {
 			padding: 10px 20px;
-			
+
 			input {
 				background: #fff;
 				border: $border-default;
@@ -281,7 +281,7 @@ img {
 		.chosen-results {
 			padding: 0;
 			margin: 0;
-			
+
 			li {
 				background: #fff;
 				border-top: $border-default;
@@ -289,20 +289,20 @@ img {
 				font-size: 14px;
 				color: lighten($textcolor,25%);
 			}
-			
+
 			li:hover {
 				color: $secondary;
 			}
-			
+
 			li:last-child {
   			@include borderradius(0 0 5px 5px);
 			}
 		}
 	}
-	
+
 	&.chosen-container-active.chosen-with-drop,
 	&.chosen-container-active {
-		
+
 		a span {
   		color: $textcolor;
 		}
@@ -337,7 +337,7 @@ header {
   		}
   	}
 	}
-  
+
   .logo {
     display: inline-block;
     font-size: 24px;
@@ -362,12 +362,12 @@ header {
 }
 
 section {
-  
+
   .information {
     margin-bottom: 40px;
-    
+
     h1 {
-      
+
       .name {
         font-size: 16px;
         color: $secondary;
@@ -375,7 +375,7 @@ section {
         margin-left: 5px;
       }
     }
-    
+
     .overflow {
       display: block;
       height: 90px;
@@ -389,8 +389,8 @@ section {
         width: 100%;
         position: absolute;
         bottom: 0;
-      }      
-      
+      }
+
       .show {
         cursor: pointer;
         border-top: 1px solid lighten($bordercolor,5%);
@@ -400,18 +400,18 @@ section {
         text-align: center;
         text-transform: uppercase;
         font-weight: 600;
-        
+
         &:hover {
           color: lighten($textcolor,15%);
         }
       }
-      
+
       .description {
         height: 100%;
         padding: 0 20px 20px 0;
         overflow: hidden;
       }
-      
+
       &.shown {
         height: 220px;
 
@@ -424,13 +424,13 @@ section {
         }
       }
     }
-    
+
     .trends {
       margin-bottom: 20px;
       line-height: 15px;
-      
+
       ul {
-        
+
         li {
           display: inline-block;
           font-size: 14px;
@@ -438,10 +438,10 @@ section {
           line-height: 15px;
           color: lighten($textcolor,25%);
           margin-right: 20px;
-          
-          .graph.trend { 
+
+          .graph.trend {
             margin-right: 3px;
-            
+
             img {
               height: 11px;
               margin-bottom: 0;
@@ -457,10 +457,10 @@ section {
 /* Aside Styling */
 
 aside {
-  
+
   .element {
     @extend %clearfix;
-    
+
     .total-tweets {
       display: block;
       @include opacity(100);
@@ -479,7 +479,7 @@ aside {
       padding: 53px 0 0 0;
       @include borderradius(100px);
       @include transition(all 350ms ease);
-  
+
       span {
         font-size: 40px;
         display: block;
@@ -489,10 +489,10 @@ aside {
         margin-bottom: 5px;
       }
     }
-    
+
     ul {
       border-top: 1px solid $bordercolor;
-      
+
       li {
         display: inline-block;
         vertical-align: top;
@@ -506,9 +506,9 @@ aside {
         border-left: 1px solid $bordercolor;
         color: lighten($textcolor,40%);
         font-weight: 600;
-        
+
         &:first-child { border-left: 0; }
-        
+
         span {
           font-size: 24px;
           display: block;
@@ -517,7 +517,7 @@ aside {
           color: lighten($textcolor,0%);
           margin-bottom: 2px;
         }
-        
+
         &:after {
           content: '';
           height: 0;
@@ -538,18 +538,18 @@ aside {
 
       &.stats,
       &.ranking-btm {
-        
-        li { 
+
+        li {
           @include calc('width','50% - 2px');
         }
       }
 
       &.percentages,
       &.ranking-top {
-        
-        li { 
+
+        li {
           @include calc('width','(100% / 3) - 3px');
-          
+
         }
       }
 
@@ -571,23 +571,23 @@ aside {
     text-transform: lowercase;
 }
 
-.ranking .box li span[data-text*="1-"]:after, 
+.ranking .box li span[data-text*="1-"]:after,
 .ranking .box li span[data-text^="1-"]:after {
     content: 'st';
 }
 
-.ranking .box li span[data-text*="2-"]:after, 
+.ranking .box li span[data-text*="2-"]:after,
 .ranking .box li span[data-text^="2-"]:after {
     content: 'nd';
 }
 
-.ranking .box li span[data-text*="3-"]:after, 
+.ranking .box li span[data-text*="3-"]:after,
 .ranking .box li span[data-text^="3-"]:after {
     content: 'rd';
 }
 
-.ranking .box li span[data-text="11-rank"]:after, 
-.ranking .box li span[data-text="12-rank"]:after, 
+.ranking .box li span[data-text="11-rank"]:after,
+.ranking .box li span[data-text="12-rank"]:after,
 .ranking .box li span[data-text="13-rank"]:after {
     content: 'th';
 }
@@ -598,7 +598,7 @@ aside {
 	width: 100%;
 	padding: 20px 0 0 0;
 	text-align: center;
-	
+
 	button {
   	border: 0;
   	@include borderradius(3px);
@@ -622,10 +622,10 @@ footer {
   font-size: 12px;
   color: lighten($textcolor,20%);
   text-align: center;
-  
+
   a {
     margin-left: 10px;
-    white-space: nowrap;  
+    white-space: nowrap;
   }
 }
 
@@ -652,38 +652,38 @@ footer {
 	  background: transparent;
 		position: relative;
 		z-index: 999;
-		
+
 		.holder {
   		text-align: center;
-  		
+
   		footer {
     		border-top: 1px solid rgba(white,0.3);
     		color: rgba(white,0.6);
-    		
+
     		a {
     		  color: rgba(white,0.7);
-    		  
+
     		  &:hover {
     		    color: rgba(white,1);
     		  }
     		}
   		}
-		
+
 			&.selection {
-				
+
 				.brand {
   				display: inline-block;
 					width: auto;
 					padding: 0 0 20px 0;
 					margin: 0 auto;
-					
+
 					img {
 						height: 50px;
 						padding: 0;
 						margin: 0;
 						float: left;
 					}
-					
+
 					h1 {
 						font-size: 46px;
 						font-weight: 100;
@@ -693,11 +693,11 @@ footer {
 			      float: left;
 					}
 				}
-				
+
 				.info {
 					width: 100%;
 					padding: 0 0 20px 0;
-						
+
 					h2 {
 						font-size: 29px;
 						font-weight: 200;
@@ -705,7 +705,7 @@ footer {
 						line-height: 36px;
 						color: $darkh;
 					}
-					
+
 					p {
 						font-size: 16px;
 						font-weight: 400;
@@ -722,9 +722,9 @@ footer {
 				.trending {
 					width: 100%;
 					padding: 30px 0 0 0;
-					
+
 					h1 {
-  					
+
   					span {
     					position: relative;
     					display: inline-block;
@@ -736,7 +736,7 @@ footer {
   						padding: 0 0 5px 0;
   						margin: 0;
   						text-transform: uppercase;
-  						
+
   						&:before,
   						&:after {
   							content: '';
@@ -747,19 +747,19 @@ footer {
   							left: -95px;
   							top: 10px;
   						}
-  						
+
   						&:after {
   							left: auto;
   							right: -95px;
   						}
 						}
 					}
-					
+
 					.trend {
 						width: 33.33%;
 						text-align: left;
 						float: left;
-						
+
 						h2 {
 							font-size: 12px;
 							font-weight: 500;
@@ -768,16 +768,16 @@ footer {
 							margin: 0;
 						}
 						ul {
-							
+
 							li {
 								padding: 0 0 5px 0;
-								
+
 								a {
 									font-size: 14px;
 									font-weight: 500;
                   color: rgba(white,0.8);
                   text-shadow: 0 1px 2px $hpdrop;
-									
+
 									&:hover {
 										color: rgba(white,1);
 									}
@@ -801,7 +801,7 @@ footer {
   overflow: hidden;
   @include borderradius(120px);
 
-  &:hover + .total-tweets { 
+  &:hover + .total-tweets {
     @include opacity(0);
   }
 }
@@ -830,8 +830,8 @@ footer {
 }
 
 .radial_outline {
-  text-shadow: $bordercolor 0px 0px 1px,   
-  $bordercolor 0px 0px 1px,   
+  text-shadow: $bordercolor 0px 0px 1px,
+  $bordercolor 0px 0px 1px,
   $bordercolor 0px 0px 1px,
   $bordercolor 0px 0px 1px;
 }
@@ -850,7 +850,7 @@ footer {
   stroke-weight: 0.1;
   fill: $negative;
   @include transition(fill 350ms ease);
-  
+
   &:hover { fill: darken($negative,10%); }
 }
 
@@ -858,7 +858,7 @@ footer {
   stroke-weight: 0.1;
   fill: $neutral;
   @include transition(fill 350ms ease);
-  
+
   &:hover { fill: darken($neutral,0%); }
 }
 
@@ -866,46 +866,46 @@ footer {
   stroke-weight:0.1;
   fill: $positive;
   @include transition(fill 350ms ease);
-  
+
   &:hover { fill: darken($positive,10%); }
 }
 
 
 .percentages {
-  
-  strong { 
-    font-weight: 700; 
+
+  strong {
+    font-weight: 700;
     color: lighten($textcolor,25%);
   }
-  
+
   .labels { display: none; }
-  
+
   .negative {
-    .arc0-blue { 
+    .arc0-blue {
       fill: $negative;
-      
+
       &:hover { fill: darken($negative,10%); }
     }
     .pie-center { color: $negative; }
   }
 
   .neutral {
-    .arc0-blue { 
+    .arc0-blue {
       fill: $neutral;
-      
+
       &:hover { fill: darken($neutral,10%); }
     }
     .pie-center { color: darken($neutral,20%); }
   }
-  
+
   .positive {
-    .arc0-blue { 
+    .arc0-blue {
       fill: darken($positive,10%);
-      
+
       &:hover { fill: darken($positive,10%); }
     }
     .pie-center { color: $positive; }
-  } 
+  }
 }
 
 .white { fill: #FFFFFF; }
@@ -917,7 +917,7 @@ footer {
   display: block;
   height: 200px !important;
   width: 200px !important;
-  
+
   &.central {
     display: none;
     font-size: 40px !important;
@@ -947,13 +947,13 @@ footer {
   margin: 20px 20px 30px 30px;
   @include calc('width','100% - 40px');
   @extend %clearfix;
-  
+
   .flot-base {
     position: relative ;
     width: 100% ;
     height: auto;
   }
-  
+
 }
 
 .flot-tooltip {
@@ -970,16 +970,16 @@ footer {
   color: $textcolor;
   padding: 6px 10px;
   @include boxshadow(0 1px 3px rgba($bordercolor,0.5));
-  
+
   .date {
     color: lighten($textcolor,30%);
   }
-  
+
   .value {
     font-weight: 700;
     font-size: 14px;
   }
-  
+
   &:before,
   &:after {
     content: '';
@@ -997,7 +997,7 @@ footer {
     left: -4px;
     border-right: 6px solid white;
   }
-  
+
   span {
     display: block;
     line-height: 30px;
@@ -1031,7 +1031,7 @@ footer {
   position: absolute;
   top: -1px;
   right: -1px;
-  
+
   span {
     text-transform: lowercase;
     color: lighten($textcolor,20%);
@@ -1081,11 +1081,11 @@ footer {
   margin: 0 25px;
   border-top: 1px solid $bordercolor;
   padding: 10px 0 10px;
-  
+
   ul {
     display: inline-block;
     margin: 0 auto;
-    
+
     li {
       display: inline-block;
       vertical-align: top;
@@ -1097,7 +1097,7 @@ footer {
       text-align: left;
       color: lighten($textcolor,40%);
       font-weight: 600;
-      
+
       span {
         font-size: 24px;
         display: block;
@@ -1105,7 +1105,7 @@ footer {
         font-weight: 300;
         color: lighten($textcolor,0%);
       }
-      
+
       &.info i {
         width: 14px;
         height: 0;
@@ -1117,7 +1117,7 @@ footer {
 
       &.negative i:before,
       &.positive i:before,
-      &.neutral  i:before { 
+      &.neutral  i:before {
         content: '';
         border-top: 3px solid $neutral;
         width: 14px;
@@ -1130,8 +1130,8 @@ footer {
 
       &.positive i:before { border-top-color: $positive; }
       &.negative i:before { border-top-color: $negative; }
-      
-      &.events  i:before { 
+
+      &.events  i:before {
         content: '';
         background: rgba($events,0.5);
         width: 10px;
@@ -1142,7 +1142,7 @@ footer {
         margin: 0 5px 0 -20px;
       }
 
-      &.recalls  i:before { 
+      &.recalls  i:before {
         content: '';
         border-left: 2px solid $recalls;
         width: 0px;
@@ -1166,7 +1166,7 @@ footer {
     text-align: left;
     color: lighten($textcolor,40%);
     font-weight: 600;
-    
+
     i {
       display: inline-block;
       position: relative;
@@ -1182,18 +1182,18 @@ footer {
 .graph-info {
   float: right;
   height: 22px;
-  line-height: 22px;  
+  line-height: 22px;
   cursor: pointer;
   top: -6px;
   position: relative;
-  
+
   &:hover {
     color: $textcolor;
   }
-  
+
   i {
     top: 6px;
-    
+
     &:before {
       content: '';
       display: inline-block;
@@ -1219,20 +1219,20 @@ footer {
   @include opacity(0);
   visibility: hidden;
   @include transition(opacity 350ms ease);
-  
+
   &.on {
     @include opacity(100);
     visibility: visible;
     @include transition(opacity 350ms ease);
   }
-  
+
   .modal-overlay {
     display: block;
     width: 100%;
     height: 100%;
     background: rgba($textcolor,0.7);
   }
-  
+
   .modal-content {
     display: inline-block;
     position: absolute;
@@ -1243,7 +1243,7 @@ footer {
     @include transform(translate(-50%, -50%));
     background: $primary;
     color: white;
-    
+
     .modal-close {
       position: absolute;
       top: -12px;
@@ -1258,34 +1258,34 @@ footer {
       cursor: pointer;
       @include borderradius(15px);
       @include transition(all 350ms ease);
-      
+
       &:hover {
         background: $primary;
       }
-      
+
     }
-    
+
     img {
       width: 100%;
       max-width: 775px;
     }
-    
+
     .text {
       padding: 15px 20px;
       text-align: left;
-      
+
       h3 {
         color: white;
         font-size: 16px;
         font-weight: 600;
         margin: 0 0 10px 0;
       }
-      
+
       p {
         margin: 0 0 5px 0;
         padding: 0 0 0 20px;
         line-height: 1.4em;
-        
+
         strong {
           position: relative;
           margin-left: -20px;
@@ -1299,7 +1299,7 @@ footer {
 }
 
 .hide {
-  margin: 0; 
+  margin: 0;
   display: none;
 }
 
@@ -1309,13 +1309,13 @@ footer {
 @media only screen and (min-device-width : 768px) {
 
   .hide { display: inline-block; }
-  
+
   aside {
-    
+
     .group {
       float: left;
       @include calc('width','50% - 22px');
-      
+
       &:first-child {
         margin-right: 40px;
       }
@@ -1323,12 +1323,12 @@ footer {
   }
 
   .wrapper {
-    
+
     .holder {
   		max-width: 600px;
   		margin: 0 auto;
       text-align: left;
-			
+
 			/*
     	.trending {
       	width: 100%;
@@ -1353,29 +1353,29 @@ footer {
   .hide { display: none; }
 
 	.wrapper {
-		
+
 		.bg-gradient {
-			
+
 			.holder {
-				
+
 				&.selection {
 					padding: 20px;
-					
+
 					.trending {
-					
+
 						.trend {
 							width: 100%;
 							padding: 0 0 15px 0;
 							text-align: center;
-							
+
 							h2 {
 							  font-size: 18px;
 								font-weight: 300;
 							}
 							ul {
-								
+
 								li {
-									
+
 									a {
 										font-size: 16px;
 									}
@@ -1389,11 +1389,11 @@ footer {
 	}
 
   aside {
-    
+
     .group {
       float: none;
       width: 100%;
-      
+
       &:first-child {
         margin-right: 0;
       }
@@ -1405,7 +1405,7 @@ footer {
 
   .wrapper {
     padding: 0;
-    
+
     .holder {
       position: absolute;
   		top: 50%;
@@ -1414,11 +1414,11 @@ footer {
       width: 600px;
     }
   }
-  
+
   .container {
     max-width: 1200px;
   }
-  
+
   section {
     float: left;
       @include calc('width','100% - 425px');
@@ -1428,11 +1428,11 @@ footer {
     float: left;
     width: 385px;
     margin-left: 40px;
-    
+
     .group {
       float: none;
       width: 100%;
-      
+
       &:first-child {
         margin-right: 0;
       }
