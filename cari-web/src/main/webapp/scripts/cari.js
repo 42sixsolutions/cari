@@ -13,6 +13,5 @@ angular.module('cari', [
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'partials/home.html', controller: 'CariCtrl' });
-    $routeProvider.when('/detail/:drug', { templateUrl: 'partials/detail.html', controller: 'CariCtrl' });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

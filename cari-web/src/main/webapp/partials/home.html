@@ -1,48 +1,16 @@
-<div class="bg-gradient">
-	<div class="holder selection">
-		
-		<div class="brand clearfix">
-			<img src="images/logo.png" />
-			<h1>cari</h1>
-		</div>
-		
-		<div class="info">
-			<h2>Correlating Adverse Drug Events Against Social Media Sentiment.</h2>
-			<p>Below are the some of the most popular used drugs.  We merge Social data with FDA Adverse Events and Recalls.  Click a drug to become aware of how such events affect social media.</p>
-		</div>
-		
-		<div class="selection">
-      <select data-placeholder="Please Select a Drug..." class="chosen-select" ng-model="drug.selected" ng-options="drug.brandName as drug.brandName for drug in drugList"></select>
-			<div class="controls">
-				<button type="button" name="search" ng-click="onSearch(drug.selected)">Search</button>
-			</div>
-		</div>
-		
-		<div class="trending clearfix">
-  		<h1><span>Currently Trending</span></h1>
-  			<div class="trend">
-  				<h2>Positive Social</h2>
-  				<ul>
-  					<li ng-repeat="drug in trends.topPositive"><a href="#/detail/{{drug.brandName}}">{{drug.brandName}}</a></li>
-  				</ul>
-  			</div>
-  			<div class="trend">
-  				<h2>Negative Social</h2>
-  				<ul>
-  	      	<li ng-repeat="drug in trends.topNegative"><a href="#/detail/{{drug.brandName}}">{{drug.brandName}}</a></li>
-  				</ul>
-  			</div>
-  			<div class="trend">
-  				<h2>FDA Adverse Events</h2>
-  				<ul>
-  	        <li ng-repeat="drug in trends.mostAdverseEvents"><a href="#/detail/{{drug.brandName}}">{{drug.brandName}}</a></li>
-  				</ul>
-  			</div>
-		</div>
-
-    <footer>
-      <p>Produced by 42six a CSC Company. <a href="https://github.com/42sixsolutions/cari" target="_blank">cari on Github</a></p>
-    </footer>
-		
-	</div>
+<div>
+  <div id="controls">
+    <input type="radio" name="pointType" value="last" ng-model="options.type">Last</input>
+    <input type="radio" name="pointType" value="worst" ng-model="options.type">Worst</input>
+    <select ng-model="options.contaminant">
+      <option value="">Select a contaminant</option>
+      <option ng-repeat="contaminant in lists.contaminants" value="{{contaminant.value}}">{{contaminant.name}}</option>
+    </select>
+    <select ng-model="options.location">
+      <option value="">Select a location zone</option>
+      <option ng-repeat="location in lists.locations" value="{{location.value}}">{{location.name}}</option>
+    </select>
+  </div>
+  <div id="map"></div>
+  <div id="timeline"></div>
 </div>
