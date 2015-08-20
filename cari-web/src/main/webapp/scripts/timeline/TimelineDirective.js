@@ -1,9 +1,19 @@
 'use strict';
 
+/**
+ * The `timeline` directive is a timeline that allows a windowed selection
+ * of time. It is basically an Angular directive wrapper for the JQRangeSlider
+ * library (http://ghusse.github.io/jQRangeSlider/index.html).
+ *
+ * When the timeline window changes, the `timelineChanged` event is
+ * broadcast on the $rootScope, this contains all the window's start and end
+ * times.
+ */
+
 angular.module('timeline')
   .directive('timeline', [
-           'timelineConfig',
-  function (timelineConfig) {
+           '$rootScope', 'timelineConfig',
+  function ($rootScope,   timelineConfig) {
       return {
         restrict: 'E',
         template: '<div></div>',
@@ -31,6 +41,9 @@ angular.module('timeline')
                 return Months[val.getMonth()] + ' ' + val.getFullYear();
               }
             }]
+          })
+          .bind('valuesChanged', function(e, data) {
+            $rootScope.$broadcast('timelineChanged', data);
           });
 
         }

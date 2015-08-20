@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
-        function($scope, Query) {
+angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$rootScope", "Query",
+        function($scope, $rootScope, Query) {
 
     $scope.lists = {
         "contaminants": [
@@ -26,6 +26,10 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
         "toDate": (new Date()).getTime(),
         "viewType": "latest"
     };
+
+    $rootScope.$on('timelineChanged', function() {
+        console.log(arguments);
+    });
 
     var now = new Date().getTime();
     var before = new Date();
