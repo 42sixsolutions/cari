@@ -23,6 +23,6 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope",
     };
 
     $scope.options = {
-        "type": "worst"
+        "type": "latest",
     };
 }]);

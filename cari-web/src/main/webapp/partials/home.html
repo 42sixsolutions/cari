@@ -1,13 +1,11 @@
 <div>
   <div id="controls">
-    <input type="radio" name="pointType" value="last" ng-model="options.type">Last</input>
+    <input type="radio" name="pointType" value="latest" ng-model="options.type">Latest</input>
     <input type="radio" name="pointType" value="worst" ng-model="options.type">Worst</input>
-    <select ng-model="options.contaminant">
-      <option value="">Select a contaminant</option>
+    <select multiple ng-model="options.contaminant">
       <option ng-repeat="contaminant in lists.contaminants" value="{{contaminant.value}}">{{contaminant.name}}</option>
     </select>
-    <select ng-model="options.location">
-      <option value="">Select a location zone</option>
+    <select multiple ng-model="options.location" type="multiple">
       <option ng-repeat="location in lists.locations" value="{{location.value}}">{{location.name}}</option>
     </select>
   </div>
