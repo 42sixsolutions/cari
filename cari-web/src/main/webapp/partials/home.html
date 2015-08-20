@@ -1,39 +1,40 @@
 <div>
-    <div id="controls">
-        <input type="radio" name="viewType" value="latest" ng-model="options.viewType">Latest</input>
-        <input type="radio" name="viewType" value="highest" ng-model="options.viewType">Worst</input>
-        <select multiple ng-model="options.contaminants">
-            <option ng-repeat="contaminant in lists.contaminants" value="{{contaminant.value}}">{{contaminant.name}}
-            </option>
-        </select>
-        <select multiple ng-model="options.locationZones" type="multiple">
-            <option ng-repeat="location in lists.locations" value="{{location.value}}">{{location.name}}</option>
-        </select>
-        <button ng-click="apply()">Apply</button>
-    </div>
-    <div id="report">
-        <table>
-            <thead>
-            <tr>
-                <th field="SAMPLING_REASON">Sampling Reason</th>
-                <th field="SITE_EVENT_ID">Sample Date</th>
-                <th field="STATE">State</th>
-                <th field="CITY">City</th>
-                <th field="CAS_NUMBER">CAS #</th>
-                <th field="ANALYTE_NAME">Analyte</th>
-                <th field="LOCATION_ZONE">Zone</th>
-                <th field="LATITUDE">Lat</th>
-                <th field="LONGITUDE">Lon</th>
-                <th field="FINAL_RESULT">Result</th>
-                <th field="RESULT_UNITS">Units</th>
-            </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
+  <div id="controls">
+      <input type="radio" name="viewType" value="latest" ng-model="options.viewType">Latest</input>
+      <input type="radio" name="viewType" value="highest" ng-model="options.viewType">Worst</input>
+      <select multiple ng-model="options.contaminants">
+          <option ng-repeat="contaminant in lists.contaminants" value="{{contaminant.value}}">{{contaminant.name}}
+          </option>
+      </select>
+      <select multiple ng-model="options.locationZones" type="multiple">
+          <option ng-repeat="location in lists.locations" value="{{location.value}}">{{location.name}}</option>
+      </select>
+      <button ng-click="apply()">Apply</button>
+  </div>
+  <div id="report">
+      <table>
+          <thead>
+          <tr>
+              <th field="SAMPLING_REASON">Sampling Reason</th>
+              <th field="SITE_EVENT_ID">Sample Date</th>
+              <th field="STATE">State</th>
+              <th field="CITY">City</th>
+              <th field="CAS_NUMBER">CAS #</th>
+              <th field="ANALYTE_NAME">Analyte</th>
+              <th field="LOCATION_ZONE">Zone</th>
+              <th field="LATITUDE">Lat</th>
+              <th field="LONGITUDE">Lon</th>
+              <th field="FINAL_RESULT">Result</th>
+              <th field="RESULT_UNITS">Units</th>
+          </tr>
+          </thead>
+          <tbody></tbody>
+      </table>
+  </div>
 
-    <div>
-        <div ng-include="'partials/map.html'"></div>
-    </div>
-    <div id="timeline"></div>
+  <div>
+      <div ng-include="'partials/map.html'"></div>
+  </div>
+  <div id="timeline"></div>
+  <div line-chart class="line-chart"></div>
 </div>
