@@ -15,7 +15,7 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$location"
 
     $scope.onSearch = function(drug) {
         if (drug) {
-            $location.path("/detail/" + drug);            
+            $location.path("/detail/" + drug);
         }
     };
 
@@ -31,7 +31,7 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$location"
             $('.chosen-select').chosen();
         });
     });
-    
+
     if (!$scope.isDetailsPage) {
         Trends.getTopPositive(5).then(function(response) {
             $scope.trends.topPositive = response.data;
@@ -48,7 +48,7 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$location"
 
     if ($scope.isDetailsPage) {
         $scope.drug.selected = pathParts[1];
-        
+
         $('.show').on("click", function() {
           var text = $(this).text();
           $(this).parent('.overflow').toggleClass('shown');
@@ -219,5 +219,5 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$location"
             $scope.drugRankings = response.data;
         });
     }
-    
+
 }]);

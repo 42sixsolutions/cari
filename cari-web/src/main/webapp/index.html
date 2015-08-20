@@ -13,19 +13,9 @@
   <link href='https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/chosen/chosen.min.css">
   <link rel="stylesheet" href="styles/cari.css">
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-22893153-9', 'auto');
-    ga('send', 'pageview');
-
-  </script>
 </head>
 <body id="ng-app" ng-app="cari" class="tour-on">
-  <div trianglify class="wrapper" ng-view></div>
+  <div class="wrapper" ng-view></div>
 
   <script src="bower_components/jquery/jquery.js"></script>
   <script src="bower_components/jquery-ui/jquery-ui.js"></script>
@@ -48,24 +38,12 @@
   <script src="lib/curvedLines.js"></script>
   <script src="scripts/cari.js"></script>
   <script src="scripts/controllers/CariCtrl.js"></script>
+  <script src="scripts/controllers/CariMapCtrl.js"></script>
   <script src="scripts/directives/chartDirectives.js"></script>
   <script src="scripts/services/drugInfo.js"></script>
   <script src="scripts/services/trends.js"></script>
   <script src="scripts/services/mockRest.js"></script>
-
-  <div class="modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content">
-      <img src="../images/info-modal.png" alt="info-modal" />
-      <div class="text">
-        <h3>Ways to use this graph</h3>
-        <p><strong>1.</strong>Identify a recall via the teal vertical line</p>
-        <p><strong>2.</strong>Correlate the amount of Adverse Events reported around the same time as the recall, via the violet circles displayed horizontally across the bottom.</p>
-        <p><strong>3.</strong>Correlate the spike in negative social sentiment. Click on the icon to view relevant news articles from that date range.</p>
-      </div>
-      <span class="modal-close">&times;</span>
-    </div>
-  </div>
+  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 
 </body>
 </html>
