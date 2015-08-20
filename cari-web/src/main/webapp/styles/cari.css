@@ -1054,7 +1054,7 @@ footer {
       margin-right: 40px; }
 
   .wrapper .holder {
-    max-width: 600px;
+    max-width: 1100px;
     margin: 0 auto;
     text-align: left;
     			/*
@@ -1102,7 +1102,7 @@ footer {
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      width: 600px; }
+      width: 1100px; }
 
   .container {
     max-width: 1200px; }

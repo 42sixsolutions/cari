@@ -9,7 +9,8 @@ angular.module('cari', [
   'ngRoute',
   'cari.controllers',
   'cari.directives',
-  'cari.services'
+  'cari.services',
+  'timeline'
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'partials/home.html', controller: 'CariCtrl' });
