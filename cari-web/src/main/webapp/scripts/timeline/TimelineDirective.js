@@ -28,14 +28,7 @@ angular.module('timeline')
               }
             }]
           });
-          console.log(element[0]);
 
-          element.bind('click', function(e) {
-            e.preventDefault();
-
-            console.log('I was clicked!!');
-
-          });
         }
       }
   }])
