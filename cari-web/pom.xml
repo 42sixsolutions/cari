@@ -13,7 +13,7 @@
 		<finalName>cari</finalName>
 		<plugins>
 			<plugin>
-			
+
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>keytool-maven-plugin</artifactId>
 				<version>1.5</version>
@@ -136,10 +136,36 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>
+			<!-- 
+			<exclusions>
+				<exclusion>
+					<artifactId>jersey-media-jaxb</artifactId>
+					<groupId>org.glassfish.jersey.media</groupId>
+				</exclusion>
+			</exclusions>
+			-->
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet-core</artifactId>
+		</dependency>
+		<!--  
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-moxy</artifactId>
+		</dependency>
+		-->
+		
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com._42six.cari</groupId>
+			<artifactId>cari-services</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 		<!-- JUNIT -->
