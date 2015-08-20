@@ -28,6 +28,7 @@ public class MeasurementRecord extends HashMap<String, String> {
 		SITE_EVENT_ID(true),
 		ANALYTE_NAME(true),
 		SAMPLE_SUBMATRIX(true),
+		LOCATION_ZONE(true),
 		LATITUDE(true),
 		LONGITUDE(true),
 		//TOP_DEPTH(),
