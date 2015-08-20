@@ -49,6 +49,8 @@
     </build>
 
     <modules>
+    	<module>cari-commons</module>
+    	<module>cari-services</module>
         <module>cari-web</module>
     </modules>
 
@@ -72,10 +74,13 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <!-- For now we don't have any modules that are only built in local mode -->
+            <!--  
             <modules>
             	<module>cari-commons</module>
                 <module>cari-services</module>
             </modules>
+            -->
         </profile>
         <profile>
             <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->

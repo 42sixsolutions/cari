@@ -1,9 +1,8 @@
 package com._42six.cari.services;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +14,8 @@ import com._42six.cari.commons.model.MeasurementRecord;
 
 public class CariCsvReader {
 	
-	private final File csvFile;
-	
-	public CariCsvReader(File csvFile)  {
-		this.csvFile = csvFile;
-	}
-	
-	public List<MeasurementRecord> toRecordList(List<Field> fieldList) throws IOException {
-		Reader in = new FileReader(csvFile);
-		Iterable<CSVRecord> records = CSVFormat.EXCEL.withHeader().parse(in);
+	public List<MeasurementRecord> toRecordList(List<Field> fieldList, InputStream inputStream) throws IOException {
+		Iterable<CSVRecord> records = CSVFormat.EXCEL.withHeader().parse(new InputStreamReader(inputStream));
 
 		List<MeasurementRecord> recordList = new ArrayList<MeasurementRecord>();
 		for (CSVRecord csvRecord : records) {
