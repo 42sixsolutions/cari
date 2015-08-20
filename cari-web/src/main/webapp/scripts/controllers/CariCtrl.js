@@ -23,7 +23,8 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
     };
 
     $scope.options = {
-        "type": "latest",
+        "toDate": (new Date()).getTime(),
+        "viewType": "latest"
     };
 
     $scope.apply = function() {
