@@ -3,9 +3,14 @@ package com._42six.cari.services;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.geojson.Feature;
 import org.geojson.FeatureCollection;
@@ -27,7 +32,7 @@ public class ResponseTranslator {
 	
 	public ResponseTranslator(InputStream inputCsv) throws IOException, ParseException {
 		CariCsvReader reader = new CariCsvReader();
-		this.recordList = reader.toRecordList(MeasurementRecord.FIELD_LIST, inputCsv);
+		this.recordList = Collections.unmodifiableList(reader.toRecordList(MeasurementRecord.FIELD_LIST, inputCsv));
 		this.requestValidator = new RequestValidator();
 		this.parameters = createParameters();
 	}
@@ -72,24 +77,65 @@ public class ResponseTranslator {
 	public FeatureCollection toGeoJson(List<MeasurementRecord> recordList) throws IOException {
 		
 		FeatureCollection featureCollection = new FeatureCollection();
-		for (MeasurementRecord record : recordList) {
-			Feature f = new Feature();
-			Double lat = Double.parseDouble(record.get(MeasurementField.LATITUDE.toString()));
-			Double lon = Double.parseDouble(record.get(MeasurementField.LONGITUDE.toString()));
-			Point point = new Point(lon, lat);
-			f.setGeometry(point);
-			for (String key : record.keySet()) {
-				f.setProperty(key, record.get(key));
-			}
-			featureCollection.add(f);
+		for (final MeasurementRecord record : recordList) {
+			
+			//TODO: summary logic here
+			
+			Feature feature = createFeature(new ArrayList<MeasurementRecord>() {
+				private static final long serialVersionUID = -5011036963234904340L;
+			{ add(record); }});
+			
+			featureCollection.add(feature);
 		}
 		
 		return featureCollection;
 	}
+	
+	public Feature createFeature(Collection<MeasurementRecord> recordList) {
+		Feature feature = new Feature();
+		List<Map<String, String>> propertyMapList = new ArrayList<Map<String, String>>();
+		Map<String, String> summaryMap = new HashMap<String, String>();
+		for (MeasurementRecord record : recordList) {
+			//set geometry
+			Double lat = Double.parseDouble(record.get(MeasurementField.LATITUDE.toString()));
+			Double lon = Double.parseDouble(record.get(MeasurementField.LONGITUDE.toString()));
+			Point point = new Point(lon, lat);
+			feature.setGeometry(point);
+			
+			//set properties
+			Map<String, String> propertyMap = new HashMap<String, String>();
+			for (String key : record.keySet()) {
+				propertyMap.put(key, record.get(key));
+			}
+			propertyMapList.add(propertyMap);
+			
+			//set summary
+			summaryMap.put("Contaminant", record.get(MeasurementField.ANALYTE_NAME.toString()));
+			//TODO:
+		}
+		feature.setProperty("events", propertyMapList);
+		feature.setProperty("summary", summaryMap);
+		//TODO: tooltips
+		
+		return feature;
+	}
 
 	public FeatureCollection getFeatures(QueryRequest request) throws IOException, InvalidRequestException {
 		this.requestValidator.validateQueryRequest(request);
-		return this.getAllFeatures();
+		
+		List<MeasurementRecord> returnList = new ArrayList<MeasurementRecord>();
+		
+		for (MeasurementRecord record : this.recordList) {
+			boolean keepRecord = true;
+			
+			//if (keepRecord && request.get)
+			
+			if (keepRecord) {
+				returnList.add(record);
+			}
+		}
+		
+		return toGeoJson(returnList);
 	}
 
 	public Parameters getParameters() {
