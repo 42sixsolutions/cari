@@ -1,17 +1,43 @@
     <style>
         #map {
-            height: 80%;
-            width: 40%;
+            height: 100%;
+            width: 80%;
         }
     </style>
 <div id="map"></div>
-<script>
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-        });
-    }
+<!--<script>-->
+    <!--var map;-->
+    <!--function initMap() {-->
+        <!--var uluru = {lat: -25.363, lng: 131.044};-->
 
-</script>
+        <!--map = new google.maps.Map(document.getElementById('map'), {-->
+            <!--zoom: 4,-->
+            <!--center: uluru-->
+        <!--});-->
+
+        <!--map.data.loadGeoJson('../WEB-INF/classes/json/sampleGeoJSON.json');-->
+
+        <!--var contentString = 'Hello World Content';-->
+
+        <!--var infowindow = new google.maps.InfoWindow({-->
+            <!--content: contentString-->
+        <!--});-->
+
+        <!--var marker = new google.maps.Marker({-->
+            <!--position: uluru,-->
+            <!--map: map,-->
+            <!--title: 'Uluru (Ayers Rock)'-->
+        <!--});-->
+
+        <!--marker.addListener('click', function() {-->
+            <!--infowindow.open(map, marker);-->
+
+            <!--map.data.forEach(function(feature){-->
+                <!--console.log('here');-->
+                <!--console.log(feature);-->
+            <!--});-->
+
+        <!--});-->
+    <!--}-->
+
+<!--</script>-->
