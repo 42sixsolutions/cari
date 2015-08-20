@@ -25,4 +25,8 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope",
     $scope.options = {
         "type": "latest",
     };
+
+    $scope.apply = function() {
+        console.log($scope.options);
+    };
 }]);

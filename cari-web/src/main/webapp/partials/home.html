@@ -8,6 +8,7 @@
     <select multiple ng-model="options.location" type="multiple">
       <option ng-repeat="location in lists.locations" value="{{location.value}}">{{location.name}}</option>
     </select>
+    <button ng-click="apply()">Apply</button>
   </div>
   <div id="report">
     <table>
@@ -22,4 +23,5 @@
   </div>
   <div id="map"></div>
   <div id="timeline"></div>
+
 </div>
