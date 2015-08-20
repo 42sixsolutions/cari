@@ -2,10 +2,16 @@
 'use strict';
 
 angular.module('cari.controllers')
-    .controller('CariMapCtrl', ['$scope', 'CariMapService', function($scope, CariMapService){
+    .controller('CariMapCtrl', ['$scope', '$timeout', 'CariMapService', function($scope, $timeout, CariMapService){
 
-        $scope.$on('$viewContentLoaded', function(){
-                CariMapService.initMapObjct();
+        //$scope.initMap = function() {
+        $timeout(function(){
+            CariMapService.initMapObjct();
         });
+
+        //}
+        //$scope.$on('$viewContentLoaded', function(){
+        //
+        //});
 
     }]);

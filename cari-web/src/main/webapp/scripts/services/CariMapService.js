@@ -4,7 +4,6 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
     var mapObject;
 
     var initMapObjct = function() {
-
         // init map object
         mapObject = new google.maps.Map(document.getElementById('map'), {
             mapTypeId:  google.maps.MapTypeId.TERRAIN
@@ -12,7 +11,6 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
 
         // load data
         mapObject.data.loadGeoJson('../WEB-INF/classes/json/SampleData-FirstCut-gjson.json');
-
 
 
         /* Listeners */
@@ -42,6 +40,8 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
             });
         });
 
+
+        /* Functions */
         function getTootlTipContent(feature) {
             var content = '<div>'+
                 feature.getProperty('SAMPLE_SUBMATRIX') +
@@ -50,7 +50,6 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
 
             return content;
         };
-
 
         // center map around all markers
         // call it after everything loads
