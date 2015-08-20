@@ -10,17 +10,20 @@ import org.geojson.Point;
 
 import com._42six.cari.commons.model.MeasurementRecord;
 import com._42six.cari.commons.model.MeasurementRecord.MeasurementField;
+import com._42six.cari.services.model.InvalidRequestException;
+import com._42six.cari.services.model.QueryRequest;
 
 public class ResponseTranslator {
 	
 	private static ResponseTranslator instance;
+	private RequestValidator requestValidator;
 	
 	private List<MeasurementRecord> recordList;
 	
 	public ResponseTranslator(InputStream inputCsv) throws IOException {
 		CariCsvReader reader = new CariCsvReader();
 		this.recordList = reader.toRecordList(MeasurementRecord.FIELD_LIST, inputCsv);
-		System.out.println(this.recordList.size());
+		this.requestValidator = new RequestValidator();
 	}
 
 	public static ResponseTranslator getInstance(InputStream inputCsv) throws IOException {
@@ -51,6 +54,11 @@ public class ResponseTranslator {
 		}
 		
 		return featureCollection;
+	}
+
+	public FeatureCollection getFeatures(QueryRequest request) throws IOException, InvalidRequestException {
+		this.requestValidator.validateQueryRequest(request);
+		return this.getAllFeatures();
 	}
 	
 }
