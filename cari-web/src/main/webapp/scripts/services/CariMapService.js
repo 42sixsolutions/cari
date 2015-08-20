@@ -3,14 +3,15 @@
 angular.module('cari.services').factory('CariMapService', ['$http', function($http) {
     var mapObject;
 
-    var initMapObjct = function() {
+    var initMapObject = function(geoJson) {
         // init map object
         mapObject = new google.maps.Map(document.getElementById('map'), {
             mapTypeId:  google.maps.MapTypeId.TERRAIN
         });
 
         // load data
-        mapObject.data.loadGeoJson('../WEB-INF/classes/json/SampleData-FirstCut-gjson.json');
+        console.log(JSON.stringify(geoJson));
+        mapObject.data.addGeoJson(geoJson);
 
 
         /* Listeners */
@@ -70,7 +71,7 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
     };
 
     return {
-        initMapObjct: initMapObjct,
+        initMapObject: initMapObject,
         getMapObject: getMapObject
     };
 }]);

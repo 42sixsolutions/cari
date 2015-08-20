@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
-        function($scope, Query) {
+angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout", "CariMapService", "Query",
+        function($scope, $timeout, CariMapService, Query) {
 
     $scope.lists = {
         "contaminants": [
@@ -52,4 +52,10 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
             console.log(response.data);
         });
     };
+
+    $timeout(function() {
+        Query.postQuery($scope.options).then(function(response) {
+            CariMapService.initMapObject(response.data);
+        });
+    });
 }]);
