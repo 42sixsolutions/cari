@@ -9,7 +9,6 @@ angular.module('cari', [
   'ngRoute',
   'cari.controllers',
   'cari.directives',
-  'cari.mockREST',
   'cari.services'
 ]).
 config(['$routeProvider', function($routeProvider) {
