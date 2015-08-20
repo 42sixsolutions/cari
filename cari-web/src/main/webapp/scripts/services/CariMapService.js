@@ -1,40 +1,69 @@
 'use strict';
 
 angular.module('cari.services').factory('CariMapService', ['$http', function($http) {
-
     var mapObject;
 
     var initMapObjct = function() {
-        var uluru = {lat: -25.363, lng: 131.044};
 
+        // init map object
         mapObject = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
+            mapTypeId:  google.maps.MapTypeId.TERRAIN
         });
 
-        mapObject.data.loadGeoJson('../WEB-INF/classes/json/sampleGeoJSON.json');
+        // load data
+        mapObject.data.loadGeoJson('../WEB-INF/classes/json/SampleData-FirstCut-gjson.json');
 
-        var contentString = 'Hello World Content';
 
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
+
+        /* Listeners */
+        // wait till map loads then center it
+        google.maps.event.addListenerOnce(mapObject, 'idle', function() {
+            setCenter();
         });
 
-        var marker = new google.maps.Marker({
-            position: uluru,
-            setMap: map,
-            title: 'Uluru (Ayers Rock)'
-        });
+        // for each marker add tooltip message
+        mapObject.data.addListener('click', function(event){
+            var content = getTootlTipContent(event.feature);
 
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
+            var infoWindow = new google.maps.InfoWindow(
+                { content: content }
+            );
 
-            mapObject.data.forEach(function(feature){
-                console.log('here');
-                console.log(feature);
+            infoWindow.setPosition(event.feature.getGeometry().get());
+            infoWindow.setOptions({
+                pixelOffset: new google.maps.Size(0, -36)
             });
 
+            infoWindow.open(mapObject);
+
+            google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
+                infoWindow.close();
+                infoWindow.open(mapObject);
+            });
         });
+
+        function getTootlTipContent(feature) {
+            var content = '<div>'+
+                feature.getProperty('SAMPLE_SUBMATRIX') +
+
+                '</div>'
+
+            return content;
+        };
+
+
+        // center map around all markers
+        // call it after everything loads
+        function setCenter() {
+            var bounds = new google.maps.LatLngBounds();
+            mapObject.data.forEach(function(feature){
+                bounds.extend(
+                    feature.getGeometry().get()
+                );
+            });
+            
+            mapObject.fitBounds(bounds);
+        };
     };
 
     var getMapObject = function() {
