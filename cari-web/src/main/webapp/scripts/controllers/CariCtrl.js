@@ -27,7 +27,7 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
         "viewType": "latest"
     };
 
-    $scope.data = {};
+    $scope.selected = {};
 
     var now = new Date().getTime();
     var before = new Date();
@@ -49,16 +49,18 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
     });
     $scope.chartData = tmpChartData;
 
+    $scope.updateReport = function(data) {
+        $scope.selected.data = data;
+        $scope.$apply();
+    };
+
     $scope.apply = function() {
         Query.postQuery($scope.options).then(function(response) {
-            console.log(response.data);
+            CariMapService.initMapObject(response.data, $scope.updateReport);
         });
     };
 
     $timeout(function() {
-        Query.postQuery($scope.options).then(function(response) {
-            $scope.data = response.data;
-            CariMapService.initMapObject(response.data);
-        });
+        $scope.apply();
     });
 }]);

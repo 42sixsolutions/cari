@@ -15,20 +15,34 @@
       <table>
           <thead>
           <tr>
-              <th field="SAMPLING_REASON">Sampling Reason</th>
-              <th field="SITE_EVENT_ID">Sample Date</th>
-              <th field="STATE">State</th>
-              <th field="CITY">City</th>
-              <th field="CAS_NUMBER">CAS #</th>
-              <th field="ANALYTE_NAME">Analyte</th>
-              <th field="LOCATION_ZONE">Zone</th>
-              <th field="LATITUDE">Lat</th>
-              <th field="LONGITUDE">Lon</th>
-              <th field="FINAL_RESULT">Result</th>
-              <th field="RESULT_UNITS">Units</th>
+              <th>Sampling Reason</th>
+              <th>Sample Date</th>
+              <th>State</th>
+              <th>City</th>
+              <th>CAS #</th>
+              <th>Analyte</th>
+              <th>Zone</th>
+              <th>Lat</th>
+              <th>Lon</th>
+              <th>Result</th>
+              <th>Units</th>
           </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+              <tr ng-repeat="row in selected.data">
+                  <td>{{row.SAMPLING_REASON}}</td>
+                  <td>{{row.SITE_EVENT_ID}}</td>
+                  <td>{{row.STATE}}</td>
+                  <td>{{row.CITY}}</td>
+                  <td>{{row.CAS_NUMBER}}</td>
+                  <td>{{row.ANALYTE_NAME}}</td>
+                  <td>{{row.LOCATION_ZONE}}</td>
+                  <td>{{row.LATITUDE}}</td>
+                  <td>{{row.LONGITUDE}}</td>
+                  <td>{{row.FINAL_RESULT}}</td>
+                  <td>{{row.RESULT_UNITS}}</td>
+              </tr>
+          </tbody>
       </table>
   </div>
 
