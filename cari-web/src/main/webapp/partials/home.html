@@ -1,11 +1,11 @@
 <div>
   <div id="controls">
-    <input type="radio" name="pointType" value="latest" ng-model="options.type">Latest</input>
-    <input type="radio" name="pointType" value="worst" ng-model="options.type">Worst</input>
-    <select multiple ng-model="options.contaminant">
+    <input type="radio" name="viewType" value="latest" ng-model="options.viewType">Latest</input>
+    <input type="radio" name="viewType" value="highest" ng-model="options.viewType">Worst</input>
+    <select multiple ng-model="options.contaminants">
       <option ng-repeat="contaminant in lists.contaminants" value="{{contaminant.value}}">{{contaminant.name}}</option>
     </select>
-    <select multiple ng-model="options.location" type="multiple">
+    <select multiple ng-model="options.locationZones" type="multiple">
       <option ng-repeat="location in lists.locations" value="{{location.value}}">{{location.name}}</option>
     </select>
     <button ng-click="apply()">Apply</button>
@@ -23,5 +23,4 @@
   </div>
   <div id="map"></div>
   <div id="timeline"></div>
-
 </div>

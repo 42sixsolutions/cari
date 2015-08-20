@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('cari.controllers').controller('CariCtrl', ["$scope",
-        function($scope) {
+angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
+        function($scope, Query) {
 
     $scope.lists = {
         "contaminants": [
@@ -23,10 +23,13 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope",
     };
 
     $scope.options = {
-        "type": "latest",
+        "toDate": (new Date()).getTime(),
+        "viewType": "latest"
     };
 
     $scope.apply = function() {
-        console.log($scope.options);
+        Query.postQuery($scope.options).then(function(response) {
+            console.log(response.data);
+        });
     };
 }]);
