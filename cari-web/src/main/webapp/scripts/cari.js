@@ -12,8 +12,16 @@ angular.module('cari', [
   'cari.services',
   'timeline'
 ])
+
+.constant('timelineConfig', {
+	minBoundDate: new Date(2013, 11, 1),
+	maxBoundDate: new Date(),
+	minDefaultDate: new Date(2015, 1, 10),
+	maxDefaultDate: new Date()
+})
+
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'partials/home.html', controller: 'CariCtrl' });
-        $routeProvider.when('/map', { templateUrl: 'partials/map.html', controller: 'CariMapCtrl' });
+    $routeProvider.when('/map', { templateUrl: 'partials/map.html', controller: 'CariMapCtrl' });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

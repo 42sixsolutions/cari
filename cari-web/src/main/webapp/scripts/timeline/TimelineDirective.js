@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('timeline')
-  .directive('timeline', [function () { // TODO - timelineService
+  .directive('timeline', [
+           'timelineConfig',
+  function (timelineConfig) {
       return {
         restrict: 'E',
-        scope: {
-          defaultStartDate: '=?',
-          defaultEndDate: '=?'
-        },
         template: '<div></div>',
         replace: true,
         link: function($scope , element) {
@@ -16,15 +14,21 @@ angular.module('timeline')
 
           // Initialize slider...
           $(element[0]).dateRangeSlider({
-            bounds: {min: new Date(2012, 0, 1), max: new Date(2012, 11, 31, 12, 59, 59)},
-            defaultValues: {min: new Date(2012, 1, 10), max: new Date(2012, 4, 22)},
+            bounds: {
+              min: timelineConfig.minBoundDate,
+              max: timelineConfig.maxBoundDate
+            },
+            defaultValues: {
+              min: timelineConfig.minDefaultDate,
+              max: timelineConfig.maxDefaultDate
+            },
             scales: [{
               next: function(val){
                 var next = new Date(val);
                 return new Date(next.setMonth(next.getMonth() + 1));
               },
               label: function(val){
-                return Months[val.getMonth()];
+                return Months[val.getMonth()] + ' ' + val.getFullYear();
               }
             }]
           });
