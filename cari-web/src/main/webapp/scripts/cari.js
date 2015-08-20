@@ -11,7 +11,8 @@ angular.module('cari', [
   'cari.directives',
   'cari.services',
   'timeline'
-config(['$routeProvider', function($routeProvider) {
+])
+.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'partials/home.html', controller: 'CariCtrl' });
         $routeProvider.when('/map', { templateUrl: 'partials/map.html', controller: 'CariMapCtrl' });
     $routeProvider.otherwise({redirectTo: '/'});
