@@ -6,10 +6,10 @@ describe('routes', function() {
     it('should map routes to controllers', function() {
         inject(function($route) {
 
-            expect($route.routes['/'].controller).toBe('cariCtrl');
+            expect($route.routes['/'].controller).toBe('CariCtrl');
             expect($route.routes['/'].templateUrl).toBe('partials/home.html');
 
-            expect($route.routes['/detail/:drug'].controller).toBe('cariCtrl');
+            expect($route.routes['/detail/:drug'].controller).toBe('CariCtrl');
             expect($route.routes['/detail/:drug'].templateUrl).toBe('partials/detail.html');
 
             // otherwise redirect to
@@ -100,7 +100,7 @@ describe('controllers', function() {
         var $scope, ctrl, $location;
         beforeEach(inject(function($rootScope, _$location_) {
             $scope = $rootScope.$new();
-            ctrl = $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+            ctrl = $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
             $location = _$location_;
         }));
 
@@ -166,7 +166,7 @@ describe('controllers', function() {
                     $scope.onSearch("Advair");
                     $scope.$digest();
 
-                    $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+                    $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
 
                     expect($scope.drug.selected).toBe('Advair');
                 });
@@ -175,7 +175,7 @@ describe('controllers', function() {
                     $scope.onSearch("Advair");
                     $scope.$digest();
 
-                    $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+                    $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
                     $scope.$digest();
 
                     expect(DrugInfo.getTwitterStats).toHaveBeenCalled();
@@ -186,7 +186,7 @@ describe('controllers', function() {
                     $scope.onSearch("Advair");
                     $scope.$digest();
 
-                    $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+                    $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
                     $scope.$digest();
 
                     expect(DrugInfo.getFDAStats).toHaveBeenCalled();
@@ -197,7 +197,7 @@ describe('controllers', function() {
                     $scope.onSearch("Advair");
                     $scope.$digest();
 
-                    $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+                    $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
                     $scope.$digest();
 
                     expect(DrugInfo.getDrug).toHaveBeenCalled();
@@ -208,7 +208,7 @@ describe('controllers', function() {
                     $scope.onSearch("Advair");
                     $scope.$digest();
 
-                    $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+                    $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
                     $scope.$digest();
 
                     expect(DrugInfo.getChart).toHaveBeenCalled();
@@ -219,7 +219,7 @@ describe('controllers', function() {
                     $scope.onSearch("Advair");
                     $scope.$digest();
 
-                    $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+                    $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
                     $scope.$digest();
 
                     expect(Trends.getOverall).toHaveBeenCalled();
@@ -230,7 +230,7 @@ describe('controllers', function() {
                     $scope.onSearch("Lipitor");
                     $scope.$digest();
 
-                    $controller("cariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
+                    $controller("CariCtrl", { $scope: $scope, DrugInfo: DrugInfo, Trends: Trends });
                     $scope.$digest();
 
                     expect(Trends.getOverall).toHaveBeenCalled();
