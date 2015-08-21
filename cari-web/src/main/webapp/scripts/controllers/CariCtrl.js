@@ -55,7 +55,11 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
 
         var values = [];
         for (var i = 0; i < data.length; i++) {
-            values.push([new Date(data[i]["SAMPLE_DATE_TIME"]).getTime(), $.inArray(data[i]["ANALYTE_NAME"], contaminants), { "data": data[i]["ANALYTE_NAME"] + data[i]["FINAL_RESULT"] }]);
+            var dataPoint = [new Date(data[i]["SAMPLE_DATE_TIME"]).getTime(), $.inArray(data[i]["ANALYTE_NAME"], contaminants), { "data": data[i]["ANALYTE_NAME"], "value": data[i]["FINAL_RESULT"] }];
+            var contaminationLevel = Math.floor((data[i]["weightedContaminationValue"] + 0.1) * 10);
+            for (var j = 0; j < contaminationLevel; j++) {
+                values.push(dataPoint);
+            }
         }
 
         var index = 0;
