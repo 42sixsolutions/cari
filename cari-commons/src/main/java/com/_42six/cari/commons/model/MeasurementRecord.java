@@ -57,4 +57,38 @@ public class MeasurementRecord extends HashMap<String, String> {
 			return isMandatory;
 		}
 	}
+	
+	/*
+	public enum Contaminant {
+		
+		Zinc(5000),
+		Phosphorus(10),
+		Mercury(2),
+		Magnesium(1000),
+		Lead(1),
+		Copper(1300),
+		Calcium(1000),
+		Cadmium(5),
+		Arsenic(1),
+		
+		//new ones
+		
+		;
+
+
+		
+		private final double minContaminantValue;
+		
+		Contaminant(double minContaminantValue) {
+			this.minContaminantValue = minContaminantValue;
+		}
+		
+		public boolean isContaminated(double value) {
+			return value > minContaminantValue;
+		}
+		
+		public double getContaminationValue(double value) {
+			return value / this.minContaminantValue;
+		}
+	}*/
 }

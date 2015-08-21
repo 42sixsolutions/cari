@@ -9,8 +9,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import org.geojson.Feature;
 import org.geojson.FeatureCollection;
@@ -94,7 +97,10 @@ public class ResponseTranslator {
 	public Feature createFeature(Collection<MeasurementRecord> recordList) {
 		Feature feature = new Feature();
 		List<Map<String, String>> propertyMapList = new ArrayList<Map<String, String>>();
-		Map<String, String> summaryMap = new HashMap<String, String>();
+		Map<String, Object> summaryMap = new HashMap<String, Object>();
+		Set<String> locationZoneSet = new HashSet<String>();
+		Set<String> contaminantSet = new HashSet<String>();
+		TreeMap<Calendar, Double> contaminantByDateMap = new TreeMap<Calendar, Double>();
 		for (MeasurementRecord record : recordList) {
 			//set geometry
 			Double lat = Double.parseDouble(record.get(MeasurementField.LATITUDE.toString()));
@@ -110,9 +116,25 @@ public class ResponseTranslator {
 			propertyMapList.add(propertyMap);
 			
 			//set summary
-			summaryMap.put("Contaminant", record.get(MeasurementField.ANALYTE_NAME.toString()));
+			String contaminantStr = record.get(MeasurementField.ANALYTE_NAME.toString());
+			contaminantSet.add(contaminantStr);
+			
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(record.getSampleDate());
+			
+			//Contaminant contaminant = Contaminant.valueOf(contaminantStr);
+			//String finalResult = record.get(MeasurementField.FINAL_RESULT.toString());
+			//double contantminationValue = contaminant.getContaminationValue(Double.parseDouble(finalResult));
+			//contaminantByDateMap.put(calendar, contantminationValue);
+			
+			//max per contaminant aggregated contamination level, most recent contamination level (aggregated for the last date)
+			locationZoneSet.add(record.get(MeasurementField.LOCATION_ZONE.toString()));
+			
 			//TODO:
 		}
+		summaryMap.put("locationZones", locationZoneSet);
+		//summaryMap.put("contaminants", contaminantSet); //remove per Ted
+		
 		feature.setProperty("events", propertyMapList);
 		feature.setProperty("summary", summaryMap);
 		//TODO: tooltips
