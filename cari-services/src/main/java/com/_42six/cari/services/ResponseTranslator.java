@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -29,15 +30,15 @@ import com._42six.cari.services.model.QueryRequest;
 import com._42six.cari.services.model.QueryRequest.ViewType;
 
 public class ResponseTranslator {
-	
+
 	private static ResponseTranslator instance;
 	private RequestValidator requestValidator;
-	
+
 	private List<MeasurementRecord> recordList;
 	private final Parameters parameters;
-	
+
 	private static final String ICON_PATH = "../images/marker/%d.png";
-	
+
 	public ResponseTranslator(InputStream inputCsv) throws IOException, ParseException {
 		CariCsvReader reader = new CariCsvReader();
 		this.recordList = Collections.unmodifiableList(reader.toRecordList(MeasurementRecord.FIELD_LIST, inputCsv));
@@ -50,7 +51,8 @@ public class ResponseTranslator {
 		Calendar endDate = Calendar.getInstance();
 		startDate.setTimeInMillis(Long.MAX_VALUE);
 		endDate.setTimeInMillis(Long.MIN_VALUE);
-		Map<String, Double> maxFinalResultMap = new HashMap<String, Double>();
+		SortedMap<String, Double> maxFinalResultMap = new TreeMap<String, Double>();
+		SortedSet<String> locationZones = new TreeSet<String>();
 		for (MeasurementRecord record : recordList) {
 			//calculate first/last dates
 			Date date = record.getSampleDate();
@@ -64,7 +66,7 @@ public class ResponseTranslator {
 					endDate.setTime(date);
 				}
 			}
-			
+
 			//calculate max final result for each contaminant
 			String name = record.get(MeasurementField.ANALYTE_NAME.toString());
 			double finalResult = record.getFinalResultNormalized();
@@ -72,12 +74,19 @@ public class ResponseTranslator {
 			if (!maxFinalResultMap.containsKey(name) || maxFinalResultMap.get(name) < finalResult) {
 				maxFinalResultMap.put(name, finalResult);
 			}
+			
+			//get location zones
+			String locationZone = record.get(MeasurementField.LOCATION_ZONE);
+			if (locationZone != null) {
+				locationZones.add(locationZone);
+			}
 		}
 		//System.out.println(maxFinalResultMap);
 		return new Parameters(
 				startDate.getTime(), 
 				endDate.getTime(),
-				maxFinalResultMap
+				maxFinalResultMap,
+				locationZones
 				);
 	}
 
@@ -88,21 +97,21 @@ public class ResponseTranslator {
 		}
 		return instance;
 	}
-	
+
 	public FeatureCollection getAllFeatures(ViewType viewType) throws IOException {
 		return toGeoJson(this.recordList, viewType);
 	}
 
 	public FeatureCollection toGeoJson(List<MeasurementRecord> recordList, ViewType viewType) throws IOException {
-		
+
 		FeatureCollection featureCollection = new FeatureCollection();
 		Map<Point, List<MeasurementRecord>> recordMap = new HashMap<Point, List<MeasurementRecord>>();
-		
+
 		//summarize points by rounded lat/lon
 		for (final MeasurementRecord record : recordList) {
 
 			Point point = new Point(record.getRoundedLon(), record.getRoundedLat());
-			
+
 			if (!recordMap.containsKey(point)) {
 				recordMap.put(point, new ArrayList<MeasurementRecord>());
 			}
@@ -111,23 +120,23 @@ public class ResponseTranslator {
 			Feature feature = createFeature(new ArrayList<MeasurementRecord>() {
 				private static final long serialVersionUID = -5011036963234904340L;
 			{ add(record); }});
-			*/
+			 */
 		}
-		
+
 		//get feature for each point
 		for (Point point : recordMap.keySet()) {
 			Feature feature = createFeature(recordMap.get(point), point, viewType);
-			
+
 			featureCollection.add(feature);
 		}
-		
+
 		return featureCollection;
 	}
-	
+
 	public Feature createFeature(Collection<MeasurementRecord> recordList, Point point, ViewType viewType) {
 		Feature feature = new Feature();
 		feature.setGeometry(point);
-		
+
 		List<Map<String, Object>> propertyMapList = new ArrayList<Map<String, Object>>();
 		Map<String, Object> summaryMap = new HashMap<String, Object>();
 		Set<String> locationZoneSet = new HashSet<String>();
@@ -140,13 +149,13 @@ public class ResponseTranslator {
 			//Double lon = Double.parseDouble(record.get(MeasurementField.LONGITUDE.toString()));
 			//Point point = new Point(lon, lat);
 			//feature.setGeometry(point);
-			
+
 			locationZoneSet.add(record.get(MeasurementField.LOCATION_ZONE.toString()));
-			
+
 			//set summary
 			String contaminant = record.get(MeasurementField.ANALYTE_NAME.toString());
 			//contaminantSet.add(contaminant);
-			
+
 			//set events
 			Map<String, Object> propertyMap = new HashMap<String, Object>();
 			propertyMapList.add(propertyMap);
@@ -159,29 +168,29 @@ public class ResponseTranslator {
 			}
 			propertyMap.put(MeasurementField.BOTTOM_DEPTH.toString() + "_INCHES", record.getBottomDepthInches());
 			propertyMap.put(MeasurementField.TOP_DEPTH.toString() + "_INCHES", record.getTopDepthInches());
-			
+
 			//set weighted value
 			//System.out.println(this.parameters.getMaxFinalResult().get(contaminant));
 			double weightedContaminationValue = record.getWeightedContaminantValue(this.parameters.getMaxFinalResult().get(contaminant));
 			propertyMap.put("weightedContaminationValue", weightedContaminationValue);
-			
+
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(record.getSampleDate());
-			
+
 			if (!weightedContaminationByDate.containsKey(calendar)) {
 				weightedContaminationByDate.put(calendar, new TreeSet<Double>());
 			}
-			
+
 			SortedSet<Double> contaminantSet = weightedContaminationByDate.get(calendar);
 			contaminantSet.add(weightedContaminationValue);
-			
+
 			//Contaminant contaminant = Contaminant.valueOf(contaminantStr);
 			//String finalResult = record.get(MeasurementField.FINAL_RESULT.toString());
 			//double contantminationValue = contaminant.getContaminationValue(Double.parseDouble(finalResult));
 			//contaminantByDateMap.put(calendar, contantminationValue);
-			
+
 			//max per contaminant aggregated contamination level, most recent contamination level (aggregated for the last date)
-			
+
 			//value / max = contamination value (for each contaminant type)
 			//total contamination value = SUM (contamination values)
 			//TODO:
@@ -190,13 +199,13 @@ public class ResponseTranslator {
 		double contaminationValue = calculateContaminationValue(weightedContaminationByDate, viewType);
 		summaryMap.put("contaminationValue", contaminationValue);
 		summaryMap.put("icon", String.format(ICON_PATH, (int) Math.round(contaminationValue * 10)));
-		
+
 		feature.setProperty("events", propertyMapList);
 		feature.setProperty("summary", summaryMap);
-		
+
 		return feature;
 	}
-	
+
 	private double calculateContaminationValue(
 			TreeMap<Calendar, SortedSet<Double>> weightedContaminationByDate,
 			ViewType viewType) {
@@ -222,19 +231,33 @@ public class ResponseTranslator {
 
 	public FeatureCollection getFeatures(QueryRequest request) throws IOException, InvalidRequestException {
 		this.requestValidator.validateQueryRequest(request);
-		
+
 		List<MeasurementRecord> returnList = new ArrayList<MeasurementRecord>();
-		
+
+		boolean filterContaminants = request.getContaminants() != null && !request.getContaminants().isEmpty();
+		boolean filterLocationZones = request.getLocationZones() != null && !request.getLocationZones().isEmpty();
+		boolean filterDate = request.getToDate() != null;
+		//boolean filterUuids = request.getUuids() != null && !request.getUuids().isEmpty();
+
 		for (MeasurementRecord record : this.recordList) {
 			boolean keepRecord = true;
-			
-			//if (keepRecord && request.get)
-			
+
+			if (keepRecord && filterContaminants) {
+				keepRecord = request.getContaminants().contains(record.get(MeasurementField.ANALYTE_NAME));
+			}
+			if (keepRecord && filterLocationZones) {
+				keepRecord = request.getLocationZones().contains(record.get(MeasurementField.LOCATION_ZONE));
+			}
+			if (keepRecord && filterDate) {
+				Calendar recordDate = Calendar.getInstance();
+				recordDate.setTime(record.getSampleDate());
+				keepRecord = recordDate.getTimeInMillis() <= request.getToDate().getTime();
+			}
 			if (keepRecord) {
 				returnList.add(record);
 			}
 		}
-		
+
 		return toGeoJson(returnList, request.getViewType());
 	}
 
