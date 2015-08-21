@@ -6,6 +6,7 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
     var initMapObject = function(geoJson, callback) {
         // init map object
         var mapOptions = {
+            //zoom: 5,
             mapTypeControlOptions: {
                 mapTypeIds: [google.maps.MapTypeId.TERRAIN]
             }
@@ -93,18 +94,10 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
     };
 
     var setCustomStyle = function() {
-        //globalStyle();
-
-        function perFeatureStyle() {
-
-        };
-
-        function globalStyle() {
-            mapObject.data.setStyle(function(feature) {
-                return ({icon: 'images/marker/1.png'});
-            });
-
-        };
+        mapObject.data.setStyle(function(feature) {
+            console.log(feature.getProperty('summary')['icon']);
+            return ({icon: feature.getProperty('summary')['icon']});
+        });
     };
 
     var getMapObject = function() {

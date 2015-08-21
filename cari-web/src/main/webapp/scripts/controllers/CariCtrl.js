@@ -61,7 +61,7 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
 
     $scope.apply = function() {
         Query.postQuery($scope.options).then(function(response) {
-            CariMapService.initMapObject(response.data, $scope.updateReport);
+            CariMapService.initMapObject(response.data, $scope.update);
             CariMapService.setCustomStyle();
         });
     };
