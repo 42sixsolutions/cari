@@ -33,6 +33,16 @@ public class MeasurementRecord extends HashMap<String, String> {
 	public double getRoundedLon() {
 		return roundedLon;
 	}
+	
+	public double getFinalResultNormalized() {
+		String finalResult = this.get(MeasurementField.FINAL_RESULT.toString());
+		//TODO: normalize?
+		return finalResult != null && !finalResult.isEmpty() ? Double.parseDouble(finalResult) : 0;
+	}
+	
+	public double getWeightedContaminantValue(Double maxContamination) {
+		return maxContamination == null || maxContamination == 0 ? 0 : this.getFinalResultNormalized() / maxContamination;
+	}
 
 	private static List<Field> createFieldList() {
 		List<Field> list = new ArrayList<Field>();
@@ -56,7 +66,7 @@ public class MeasurementRecord extends HashMap<String, String> {
 		LONGITUDE(true),
 		//TOP_DEPTH(),
 		//BOTTOM_DEPTH(),
-		FINAL_RESULT(true),
+		FINAL_RESULT(false),
 		RESULT_UNITS(true);
 		
 		private final boolean isMandatory;

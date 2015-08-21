@@ -27,7 +27,7 @@ public class ResponseTranslatorTest {
 	@Test
 	public void testGetAllFeatures() throws IOException {
 		FeatureCollection featureCollection = responseTranslator.getAllFeatures();
-		Assert.assertEquals(70, featureCollection.getFeatures().size());
+		Assert.assertEquals(113, featureCollection.getFeatures().size());
 	}
 	
 	@Ignore
