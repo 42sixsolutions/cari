@@ -63,7 +63,8 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
                 if (i === j) {
                     continue;
                 }
-                if (pointContaminant === data[j]["ANALYTE_NAME"] && data[i]["FINAL_RESULT"] <= data[j]["FINAL_RESULT"]) {
+                var testDate = new Date(data[j]["SAMPLE_DATE_TIME"]).getTime();
+                if (pointDate === testDate && pointContaminant === data[j]["ANALYTE_NAME"] && data[i]["FINAL_RESULT"] <= data[j]["FINAL_RESULT"]) {
                     shouldAddPoint = false;
                     break;
                 }
