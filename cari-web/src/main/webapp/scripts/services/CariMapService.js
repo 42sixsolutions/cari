@@ -3,14 +3,14 @@
 angular.module('cari.services').factory('CariMapService', ['$http', function($http) {
     var mapObject;
 
-    var initMapObjct = function() {
+    var initMapObject = function(geoJson, callback) {
         // init map object
         mapObject = new google.maps.Map(document.getElementById('map'), {
             mapTypeId:  google.maps.MapTypeId.TERRAIN
         });
 
         // load data
-        mapObject.data.loadGeoJson('../WEB-INF/classes/json/SampleData-FirstCut-gjson.json');
+        mapObject.data.addGeoJson(geoJson);
 
 
         /* Listeners */
@@ -19,11 +19,13 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
             setCenter();
         });
 
+        var infoWindow;
+
         // for each marker add tooltip message
-        mapObject.data.addListener('click', function(event){
+        mapObject.data.addListener('mouseover', function(event){
             var content = getTootlTipContent(event.feature);
 
-            var infoWindow = new google.maps.InfoWindow(
+            infoWindow = new google.maps.InfoWindow(
                 { content: content }
             );
 
@@ -40,12 +42,19 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
             });
         });
 
+        mapObject.data.addListener('mouseout', function(event) {
+            infoWindow.close();
+        });
+
+        mapObject.data.addListener('click', function(event) {
+            callback(event.feature.getProperty('events'));
+        });
+
 
         /* Functions */
         function getTootlTipContent(feature) {
-            var content = '<div>'+
-                feature.getProperty('SAMPLE_SUBMATRIX') +
-
+            var content = '<div>' +
+                feature.getProperty('events')[0]['SAMPLE_SUBMATRIX'] +
                 '</div>'
 
             return content;
@@ -70,7 +79,7 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
     };
 
     return {
-        initMapObjct: initMapObjct,
+        initMapObject: initMapObject,
         getMapObject: getMapObject
     };
 }]);

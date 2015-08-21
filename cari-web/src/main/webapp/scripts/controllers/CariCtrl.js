@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
-        function($scope, Query) {
+angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout", "CariMapService", "Query",
+        function($scope, $timeout, CariMapService, Query) {
 
     $scope.lists = {
         "contaminants": [
@@ -27,6 +27,8 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
         "viewType": "latest"
     };
 
+    $scope.selected = {};
+
     var now = new Date().getTime();
     var before = new Date();
     before = before.setDate(before.getDate() - 2);
@@ -47,9 +49,18 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
     });
     $scope.chartData = tmpChartData;
 
+    $scope.updateReport = function(data) {
+        $scope.selected.data = data;
+        $scope.$apply();
+    };
+
     $scope.apply = function() {
         Query.postQuery($scope.options).then(function(response) {
-            console.log(response.data);
+            CariMapService.initMapObject(response.data, $scope.updateReport);
         });
     };
+
+    $timeout(function() {
+        $scope.apply();
+    });
 }]);
