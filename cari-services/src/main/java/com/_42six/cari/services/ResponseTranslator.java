@@ -9,8 +9,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import org.geojson.Feature;
 import org.geojson.FeatureCollection;
@@ -77,13 +80,27 @@ public class ResponseTranslator {
 	public FeatureCollection toGeoJson(List<MeasurementRecord> recordList) throws IOException {
 		
 		FeatureCollection featureCollection = new FeatureCollection();
+		Map<Point, List<MeasurementRecord>> recordMap = new HashMap<Point, List<MeasurementRecord>>();
+		
+		//summarize points by rounded lat/lon
 		for (final MeasurementRecord record : recordList) {
+
+			Point point = new Point(record.getRoundedLon(), record.getRoundedLat());
 			
-			//TODO: summary logic here
-			
+			if (!recordMap.containsKey(point)) {
+				recordMap.put(point, new ArrayList<MeasurementRecord>());
+			}
+			recordMap.get(point).add(record);
+			/*
 			Feature feature = createFeature(new ArrayList<MeasurementRecord>() {
 				private static final long serialVersionUID = -5011036963234904340L;
 			{ add(record); }});
+			*/
+		}
+		
+		//get feature for each point
+		for (Point point : recordMap.keySet()) {
+			Feature feature = createFeature(recordMap.get(point), point);
 			
 			featureCollection.add(feature);
 		}
@@ -91,16 +108,21 @@ public class ResponseTranslator {
 		return featureCollection;
 	}
 	
-	public Feature createFeature(Collection<MeasurementRecord> recordList) {
+	public Feature createFeature(Collection<MeasurementRecord> recordList, Point point) {
 		Feature feature = new Feature();
+		feature.setGeometry(point);
+		
 		List<Map<String, String>> propertyMapList = new ArrayList<Map<String, String>>();
-		Map<String, String> summaryMap = new HashMap<String, String>();
+		Map<String, Object> summaryMap = new HashMap<String, Object>();
+		Set<String> locationZoneSet = new HashSet<String>();
+		Set<String> contaminantSet = new HashSet<String>();
+		TreeMap<Calendar, Double> contaminantByDateMap = new TreeMap<Calendar, Double>();
 		for (MeasurementRecord record : recordList) {
 			//set geometry
-			Double lat = Double.parseDouble(record.get(MeasurementField.LATITUDE.toString()));
-			Double lon = Double.parseDouble(record.get(MeasurementField.LONGITUDE.toString()));
-			Point point = new Point(lon, lat);
-			feature.setGeometry(point);
+			//Double lat = Double.parseDouble(record.get(MeasurementField.LATITUDE.toString()));
+			//Double lon = Double.parseDouble(record.get(MeasurementField.LONGITUDE.toString()));
+			//Point point = new Point(lon, lat);
+			//feature.setGeometry(point);
 			
 			//set properties
 			Map<String, String> propertyMap = new HashMap<String, String>();
@@ -110,9 +132,25 @@ public class ResponseTranslator {
 			propertyMapList.add(propertyMap);
 			
 			//set summary
-			summaryMap.put("Contaminant", record.get(MeasurementField.ANALYTE_NAME.toString()));
+			String contaminantStr = record.get(MeasurementField.ANALYTE_NAME.toString());
+			contaminantSet.add(contaminantStr);
+			
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(record.getSampleDate());
+			
+			//Contaminant contaminant = Contaminant.valueOf(contaminantStr);
+			//String finalResult = record.get(MeasurementField.FINAL_RESULT.toString());
+			//double contantminationValue = contaminant.getContaminationValue(Double.parseDouble(finalResult));
+			//contaminantByDateMap.put(calendar, contantminationValue);
+			
+			//max per contaminant aggregated contamination level, most recent contamination level (aggregated for the last date)
+			locationZoneSet.add(record.get(MeasurementField.LOCATION_ZONE.toString()));
+			
 			//TODO:
 		}
+		summaryMap.put("locationZones", locationZoneSet);
+		//summaryMap.put("contaminants", contaminantSet); //remove per Ted
+		
 		feature.setProperty("events", propertyMapList);
 		feature.setProperty("summary", summaryMap);
 		//TODO: tooltips
