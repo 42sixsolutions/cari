@@ -34,6 +34,47 @@ public class MeasurementRecord extends HashMap<String, String> {
 		return roundedLon;
 	}
 	
+	public String get(MeasurementField field) {
+		return this.get(field.toString());
+	}
+	
+	public double getBottomDepthInches() {
+		String depth = this.get(MeasurementField.BOTTOM_DEPTH);
+		String units = this.get(MeasurementField.BOTTOM_DEPTH_UNITS);
+		return getInches(depth, units);
+	}
+	
+	public double getTopDepthInches() {
+		String depth = this.get(MeasurementField.TOP_DEPTH);
+		String units = this.get(MeasurementField.TOP_DEPTH_UNITS);
+		return getInches(depth, units);
+	}
+	
+	private double getInches(String value, String units) {
+		if (value == null || value.isEmpty() || units == null || units.isEmpty()) {
+			return 0;
+		}
+		Double valueDbl = Double.parseDouble(value);
+		if (valueDbl == 0) {
+			return 0;
+		}
+		else {
+			units = units.toLowerCase().split(" ")[0];
+			if (units.equals("inches")) {
+				return valueDbl;
+			}
+			else if (units.equals("feet")) {
+				return valueDbl * 12.0;
+			}
+			else if (units.equals("centimeters") || units.equals("cm")) {
+				return valueDbl * 0.393701;
+			}
+			else {
+				return 0;
+			}
+		}
+	}
+	
 	public double getFinalResultNormalized() {
 		String finalResult = this.get(MeasurementField.FINAL_RESULT.toString());
 		//TODO: normalize?

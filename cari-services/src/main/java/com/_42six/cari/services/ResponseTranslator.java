@@ -154,6 +154,12 @@ public class ResponseTranslator {
 			for (String key : record.keySet()) {
 				propertyMap.put(key, record.get(key));
 			}
+			if (!propertyMap.containsKey(MeasurementField.FINAL_RESULT.toString())) {
+				propertyMap.put(MeasurementField.FINAL_RESULT.toString(), "0");
+			}
+			propertyMap.put(MeasurementField.BOTTOM_DEPTH.toString() + "_INCHES", record.getBottomDepthInches());
+			propertyMap.put(MeasurementField.TOP_DEPTH.toString() + "_INCHES", record.getTopDepthInches());
+			
 			//set weighted value
 			//System.out.println(this.parameters.getMaxFinalResult().get(contaminant));
 			double weightedContaminationValue = record.getWeightedContaminantValue(this.parameters.getMaxFinalResult().get(contaminant));
