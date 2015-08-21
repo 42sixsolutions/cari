@@ -18,18 +18,14 @@ angular.module('timeline')
         replace: true,
         link: function($scope , element) {
 
-          console.log(element.width());
           d3.select(window).on('resize', resize);
-
-          var startDate = new Date(2013, 2, 1);
-          var endDate = new Date();
 
           var margin = { top: 200, right: 0, bottom: 200, left: 0 };
           var width = element.width() - margin.left - margin.right;
           var height = 500 - margin.top - margin.bottom;
 
           var x = d3.time.scale()
-              .domain([startDate, endDate])
+              .domain([timelineConfig.startDate, timelineConfig.endDate])
               .range([0, width])
               .clamp(true);
 
