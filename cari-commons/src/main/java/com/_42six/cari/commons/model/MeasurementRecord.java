@@ -13,13 +13,25 @@ public class MeasurementRecord extends HashMap<String, String> {
 	public static final List<Field> FIELD_LIST = createFieldList();
 
 	private final Date sampleDate;
+	private final double roundedLat;
+	private final double roundedLon;
 	
-	public MeasurementRecord(Date sampleDate)  {
+	public MeasurementRecord(Date sampleDate, double roundedLat, double roundedLon)  {
 		this.sampleDate = sampleDate;
+		this.roundedLat = roundedLat;
+		this.roundedLon = roundedLon;
 	}
 	
 	public Date getSampleDate() {
 		return sampleDate;
+	}
+
+	public double getRoundedLat() {
+		return roundedLat;
+	}
+
+	public double getRoundedLon() {
+		return roundedLon;
 	}
 
 	private static List<Field> createFieldList() {

@@ -80,13 +80,27 @@ public class ResponseTranslator {
 	public FeatureCollection toGeoJson(List<MeasurementRecord> recordList) throws IOException {
 		
 		FeatureCollection featureCollection = new FeatureCollection();
+		Map<Point, List<MeasurementRecord>> recordMap = new HashMap<Point, List<MeasurementRecord>>();
+		
+		//summarize points by rounded lat/lon
 		for (final MeasurementRecord record : recordList) {
+
+			Point point = new Point(record.getRoundedLon(), record.getRoundedLat());
 			
-			//TODO: summary logic here
-			
+			if (!recordMap.containsKey(point)) {
+				recordMap.put(point, new ArrayList<MeasurementRecord>());
+			}
+			recordMap.get(point).add(record);
+			/*
 			Feature feature = createFeature(new ArrayList<MeasurementRecord>() {
 				private static final long serialVersionUID = -5011036963234904340L;
 			{ add(record); }});
+			*/
+		}
+		
+		//get feature for each point
+		for (Point point : recordMap.keySet()) {
+			Feature feature = createFeature(recordMap.get(point), point);
 			
 			featureCollection.add(feature);
 		}
@@ -94,8 +108,10 @@ public class ResponseTranslator {
 		return featureCollection;
 	}
 	
-	public Feature createFeature(Collection<MeasurementRecord> recordList) {
+	public Feature createFeature(Collection<MeasurementRecord> recordList, Point point) {
 		Feature feature = new Feature();
+		feature.setGeometry(point);
+		
 		List<Map<String, String>> propertyMapList = new ArrayList<Map<String, String>>();
 		Map<String, Object> summaryMap = new HashMap<String, Object>();
 		Set<String> locationZoneSet = new HashSet<String>();
@@ -103,10 +119,10 @@ public class ResponseTranslator {
 		TreeMap<Calendar, Double> contaminantByDateMap = new TreeMap<Calendar, Double>();
 		for (MeasurementRecord record : recordList) {
 			//set geometry
-			Double lat = Double.parseDouble(record.get(MeasurementField.LATITUDE.toString()));
-			Double lon = Double.parseDouble(record.get(MeasurementField.LONGITUDE.toString()));
-			Point point = new Point(lon, lat);
-			feature.setGeometry(point);
+			//Double lat = Double.parseDouble(record.get(MeasurementField.LATITUDE.toString()));
+			//Double lon = Double.parseDouble(record.get(MeasurementField.LONGITUDE.toString()));
+			//Point point = new Point(lon, lat);
+			//feature.setGeometry(point);
 			
 			//set properties
 			Map<String, String> propertyMap = new HashMap<String, String>();

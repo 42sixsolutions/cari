@@ -3,6 +3,7 @@ package com._42six.cari.services;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,13 +31,26 @@ public class CariCsvReader {
 			MeasurementRecord record = null;
 			
 			String sampleDate = csvRecord.get(MeasurementField.SAMPLE_DATE_TIME);
-			if (sampleDate == null || sampleDate.isEmpty()) {
+			String lat = csvRecord.get(MeasurementField.LATITUDE);
+			String lon = csvRecord.get(MeasurementField.LONGITUDE);
+			if (sampleDate == null || sampleDate.isEmpty() || lat == null || lat.isEmpty() || lon == null || lon.isEmpty()) {
 				useRecord = false;
 			}
 			else {
+				//get time
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(new SimpleDateFormat(DATE_INPUT_FORMAT).parse(sampleDate));
-				record = new MeasurementRecord(cal.getTime());
+				
+				//get lat/lon
+				double latDbl = new BigDecimal(lat).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+				double lonDbl = new BigDecimal(lon).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+				
+				//create new record
+				record = new MeasurementRecord(
+						cal.getTime(),
+						latDbl,
+						lonDbl
+						);
 
 				for (Field field : fieldList) {
 					String value = csvRecord.get(field.getFieldName());
