@@ -21,13 +21,13 @@ public class ResponseTranslatorTest {
 	
 	@BeforeClass
 	public static void before() throws FileNotFoundException, IOException, ParseException {
-		responseTranslator = ResponseTranslator.getInstance(new FileInputStream("src/test/resources/csv/SampleData-FirstCut.csv"));
+		responseTranslator = ResponseTranslator.getInstance(new FileInputStream("src/test/resources/csv/SampleData-SecondCut.csv"));
 	}
 	
 	@Test
 	public void testGetAllFeatures() throws IOException {
 		FeatureCollection featureCollection = responseTranslator.getAllFeatures();
-		Assert.assertEquals(162, featureCollection.getFeatures().size());
+		Assert.assertEquals(2953, featureCollection.getFeatures().size());
 	}
 	
 	@Ignore
