@@ -1,0 +1,1627 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=1020">
+    
+    
+    <title>ghusse/jQRangeSlider · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="ghusse/jQRangeSlider" name="twitter:title" /><meta content="jQRangeSlider - A jquery UI range selection slider that supports dates" name="twitter:description" /><meta content="https://avatars3.githubusercontent.com/u/527245?v=3&amp;s=400" name="twitter:image:src" />
+      <meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="https://avatars3.githubusercontent.com/u/527245?v=3&amp;s=400" property="og:image" /><meta content="ghusse/jQRangeSlider" property="og:title" /><meta content="https://github.com/ghusse/jQRangeSlider" property="og:url" /><meta content="jQRangeSlider - A jquery UI range selection slider that supports dates" property="og:description" />
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    
+    <meta name="pjax-timeout" content="1000">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+        <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="4589B25C:1CB6:109C3B59:55D5F23D" name="octolytics-dimension-request_id" />
+    
+    <meta content="Rails, view, files#disambiguate" data-pjax-transient="true" name="analytics-event" />
+    <meta class="js-ga-set" name="dimension1" content="Logged Out">
+      <meta class="js-ga-set" name="dimension4" content="Current repo nav">
+    <meta name="is-dotcom" content="true">
+        <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <link rel="icon" sizes="any" mask href="https://assets-cdn.github.com/pinned-octocat.svg">
+      <meta name="theme-color" content="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <!-- </textarea> --><!-- '"` --><meta content="authenticity_token" name="csrf-param" />
+<meta content="c8ST6kR3FO/8X87KXSBmMBkzL1Ru6zHoKP28xEIg2oEhCA1+Zd4NnvyzX2xhK7CM3IzsSthYmIB0pdygoicf9g==" name="csrf-token" />
+    
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github/index-9f3b9b6f798e03419c34853e23b307439f59e850d54b1a6010a1533f084079d2.css" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2/index-e7ef318e52242411aa58941f39b0e5d44b0dab7132dc9a79a3bf09a4cf5b3dd8.css" media="all" rel="stylesheet" />
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="7b8492dc7a9d8aa6dc4f0b0a30d9e60c">
+
+      
+  <meta name="description" content="jQRangeSlider - A jquery UI range selection slider that supports dates">
+  <meta name="go-import" content="github.com/ghusse/jQRangeSlider git https://github.com/ghusse/jQRangeSlider.git">
+
+  <meta content="527245" name="octolytics-dimension-user_id" /><meta content="ghusse" name="octolytics-dimension-user_login" /><meta content="1177157" name="octolytics-dimension-repository_id" /><meta content="ghusse/jQRangeSlider" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="1177157" name="octolytics-dimension-repository_network_root_id" /><meta content="ghusse/jQRangeSlider" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/ghusse/jQRangeSlider/commits/master.atom" rel="alternate" title="Recent Commits to jQRangeSlider:master" type="application/atom+xml">
+
+  </head>
+
+
+  <body class="logged_out  env-production  vis-public">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+
+
+
+        
+        <div class="header header-logged-out" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions" role="navigation">
+        <a class="btn btn-primary" href="/join" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+      <a class="btn" href="/login?return_to=%2Fghusse%2FjQRangeSlider" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+    </div>
+
+    <div class="site-search repo-scope js-site-search" role="search">
+      <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/ghusse/jQRangeSlider/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/ghusse/jQRangeSlider/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <label class="js-chromeless-input-container form-control">
+    <div class="scope-badge">This repository</div>
+    <input type="text"
+      class="js-site-search-focus js-site-search-field is-clearable chromeless-input"
+      data-hotkey="s"
+      name="q"
+      placeholder="Search"
+      aria-label="Search this repository"
+      data-global-scope-placeholder="Search GitHub"
+      data-repo-scope-placeholder="Search"
+      tabindex="1"
+      autocapitalize="off">
+  </label>
+</form>
+    </div>
+
+      <ul class="header-nav left" role="navigation">
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/explore" data-ga-click="(Logged out) Header, go to explore, text:explore">Explore</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/features" data-ga-click="(Logged out) Header, go to features, text:features">Features</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://enterprise.github.com/" data-ga-click="(Logged out) Header, go to enterprise, text:enterprise">Enterprise</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/pricing" data-ga-click="(Logged out) Header, go to pricing, text:pricing">Pricing</a>
+          </li>
+      </ul>
+
+  </div>
+</div>
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+
+        <div class="clearfix">
+          
+<ul class="pagehead-actions">
+
+  <li>
+      <a href="/login?return_to=%2Fghusse%2FjQRangeSlider"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <span class="octicon octicon-eye"></span>
+    Watch
+  </a>
+  <a class="social-count" href="/ghusse/jQRangeSlider/watchers">
+    44
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fghusse%2FjQRangeSlider"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <span class="octicon octicon-star"></span>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/ghusse/jQRangeSlider/stargazers">
+      618
+    </a>
+
+  </li>
+
+    <li>
+      <a href="/login?return_to=%2Fghusse%2FjQRangeSlider"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-repo-forked"></span>
+        Fork
+      </a>
+      <a href="/ghusse/jQRangeSlider/network" class="social-count">
+        126
+      </a>
+    </li>
+</ul>
+
+          <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public ">
+            <span class="mega-octicon octicon-repo"></span>
+            <span class="author"><a href="/ghusse" class="url fn" itemprop="url" rel="author"><span itemprop="title">ghusse</span></a></span><!--
+         --><span class="path-divider">/</span><!--
+         --><strong><a href="/ghusse/jQRangeSlider" data-pjax="#js-repo-pjax-container">jQRangeSlider</a></strong>
+
+            <span class="page-context-loader">
+              <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+            </span>
+
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation">
+        <div class="repository-sidebar clearfix">
+            
+
+<nav class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container"
+     data-issue-count-url="/ghusse/jQRangeSlider/issues/counts">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="/ghusse/jQRangeSlider" aria-label="Code" aria-selected="true" class="js-selected-navigation-item selected sunken-menu-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /ghusse/jQRangeSlider">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Issues">
+        <a href="/ghusse/jQRangeSlider/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /ghusse/jQRangeSlider/issues">
+          <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+          <span class="js-issue-replace-counter"></span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Pull requests">
+      <a href="/ghusse/jQRangeSlider/pulls" aria-label="Pull requests" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g p" data-selected-links="repo_pulls /ghusse/jQRangeSlider/pulls">
+          <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull requests</span>
+          <span class="js-pull-replace-counter"></span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Wiki">
+        <a href="/ghusse/jQRangeSlider/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g w" data-selected-links="repo_wiki /ghusse/jQRangeSlider/wiki">
+          <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>      </li>
+  </ul>
+  <div class="sunken-menu-separator"></div>
+  <ul class="sunken-menu-group">
+
+    <li class="tooltipped tooltipped-w" aria-label="Pulse">
+      <a href="/ghusse/jQRangeSlider/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-selected-links="pulse /ghusse/jQRangeSlider/pulse">
+        <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Graphs">
+      <a href="/ghusse/jQRangeSlider/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_graphs repo_contributors /ghusse/jQRangeSlider/graphs">
+        <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+</a>    </li>
+  </ul>
+
+
+</nav>
+
+              <div class="only-with-full-nav">
+                  
+<div class="js-clone-url clone-url open"
+  data-protocol-type="http">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
+           value="https://github.com/ghusse/jQRangeSlider.git" readonly="readonly" aria-label="HTTPS clone URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="js-clone-url clone-url "
+  data-protocol-type="subversion">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
+           value="https://github.com/ghusse/jQRangeSlider" readonly="readonly" aria-label="Subversion checkout URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+
+  <div class="clone-options">You can clone with
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone" class="inline-form js-clone-selector-form " data-form-nonce="f4218347eafaa7988557e2ce4e79028cf72058df" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="2rSAfMn2rByx2UB0CGYfN4EzziFs/ECC58QbI8Iqy5Mm9fgqrMdVA5QARFLRuhtNdlPHZ5/fxsN1ZcQANVydrw==" /></div><button class="btn-link js-clone-selector" data-protocol="http" type="submit">HTTPS</button></form> or <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone" class="inline-form js-clone-selector-form " data-form-nonce="f4218347eafaa7988557e2ce4e79028cf72058df" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="5WtkbEq/GzO1JUd7KeTHxOp1dEvkdJtJJTRObZDWc/Rsw6l5e/7oiiKiil9ZTL3vCJm/EYtSzUjPMwjQJUZFog==" /></div><button class="btn-link js-clone-selector" data-protocol="subversion" type="submit">Subversion</button></form>.
+    <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+      <span class="octicon octicon-question"></span>
+    </a>
+  </div>
+
+                <a href="/ghusse/jQRangeSlider/archive/master.zip"
+                   class="btn btn-sm sidebar-button"
+                   aria-label="Download the contents of ghusse/jQRangeSlider as a zip file"
+                   title="Download the contents of ghusse/jQRangeSlider as a zip file"
+                   rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div>
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container>
+
+          
+<span id="js-show-full-navigation"></span>
+
+  <div class="repository-meta js-details-container ">
+    <div class="repository-description">
+      A jquery UI range selection slider that supports dates
+    </div>
+
+    <div class="repository-website">
+      <a href="http://ghusse.github.com/jQRangeSlider/" rel="nofollow">http://ghusse.github.com/jQRangeSlider/</a>
+    </div>
+
+</div>
+
+
+<div class="overall-summary overall-summary-bottomless">
+
+  <div class="stats-switcher-viewport js-stats-switcher-viewport">
+    <div class="stats-switcher-wrapper">
+    <ul class="numbers-summary">
+      <li class="commits">
+        <a data-pjax href="/ghusse/jQRangeSlider/commits/master">
+            <span class="octicon octicon-history"></span>
+            <span class="num text-emphasized">
+              475
+            </span>
+            commits
+        </a>
+      </li>
+      <li>
+        <a data-pjax href="/ghusse/jQRangeSlider/branches">
+          <span class="octicon octicon-git-branch"></span>
+          <span class="num text-emphasized">
+            6
+          </span>
+          branches
+        </a>
+      </li>
+
+      <li>
+        <a data-pjax href="/ghusse/jQRangeSlider/releases">
+          <span class="octicon octicon-tag"></span>
+          <span class="num text-emphasized">
+            52
+          </span>
+          releases
+        </a>
+      </li>
+
+      <li>
+        
+  <a href="/ghusse/jQRangeSlider/graphs/contributors">
+    <span class="octicon octicon-organization"></span>
+    <span class="num text-emphasized">
+      10
+    </span>
+    contributors
+  </a>
+      </li>
+    </ul>
+
+      <div class="repository-lang-stats">
+        <ol class="repository-lang-stats-numbers">
+          <li>
+              <a href="/ghusse/jQRangeSlider/search?l=javascript">
+                <span class="color-block language-color" style="background-color:#f1e05a;"></span>
+                <span class="lang">JavaScript</span>
+                <span class="percent">93.7%</span>
+              </a>
+          </li>
+          <li>
+              <a href="/ghusse/jQRangeSlider/search?l=css">
+                <span class="color-block language-color" style="background-color:#563d7c;"></span>
+                <span class="lang">CSS</span>
+                <span class="percent">6.3%</span>
+              </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="repository-lang-stats-graph js-toggle-lang-stats" title="Click for language details">
+    <span class="language-color" aria-label="JavaScript 93.7%" style="width:93.7%; background-color:#f1e05a;" itemprop="keywords">JavaScript</span>
+    <span class="language-color" aria-label="CSS 6.3%" style="width:6.3%; background-color:#563d7c;" itemprop="keywords">CSS</span>
+  </div>
+
+<include-fragment src="/ghusse/jQRangeSlider/show_partial?partial=tree%2Frecently_touched_branches_list"></include-fragment>
+
+  <div class="file-navigation in-mid-page">
+  <a href="/ghusse/jQRangeSlider/find/master"
+        class="js-show-file-finder btn btn-sm empty-icon tooltipped tooltipped-s right"
+        data-pjax
+        data-hotkey="t"
+        aria-label="Quickly jump between files"
+        data-ga-click="Repository, find file, location:repo overview">
+    <span class="octicon octicon-list-unordered"></span>
+  </a>
+    <a href="/ghusse/jQRangeSlider/compare" aria-label="Compare, review, create a pull request" class="btn btn-sm btn-primary tooltipped tooltipped-se left compare-button" aria-label="Compare &amp; review" data-pjax data-ga-click="Repository, go to compare view, location:repo overview; icon:git-compare">
+      <span class="octicon octicon-git-compare"></span>
+    </a>
+
+  
+<div class="select-menu js-menu-container js-select-menu left">
+  <span class="btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    data-ref="master"
+    title="master"
+    role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <i>Branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/ghusse/jQRangeSlider/tree/allowResizeOption"
+               data-name="allowResizeOption"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="allowResizeOption">
+                allowResizeOption
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/ghusse/jQRangeSlider/tree/gh-pages"
+               data-name="gh-pages"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="gh-pages">
+                gh-pages
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/ghusse/jQRangeSlider/tree/limits"
+               data-name="limits"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="limits">
+                limits
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open selected"
+               href="/ghusse/jQRangeSlider/tree/master"
+               data-name="master"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="master">
+                master
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/ghusse/jQRangeSlider/tree/rtl"
+               data-name="rtl"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="rtl">
+                rtl
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/ghusse/jQRangeSlider/tree/single"
+               data-name="single"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="single">
+                single
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/v4.2.9"
+                 data-name="v4.2.9"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="v4.2.9">v4.2.9</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/latest"
+                 data-name="latest"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="latest">latest</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.7.1"
+                 data-name="5.7.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.7.1">5.7.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.7.0"
+                 data-name="5.7.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.7.0">5.7.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.6.0"
+                 data-name="5.6.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.6.0">5.6.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.5.0"
+                 data-name="5.5.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.5.0">5.5.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.4.0"
+                 data-name="5.4.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.4.0">5.4.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.3.0"
+                 data-name="5.3.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.3.0">5.3.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.2.0"
+                 data-name="5.2.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.2.0">5.2.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.1.1"
+                 data-name="5.1.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.1.1">5.1.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.1.0"
+                 data-name="5.1.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.1.0">5.1.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.1"
+                 data-name="5.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.1">5.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.0.2"
+                 data-name="5.0.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.0.2">5.0.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.0.1"
+                 data-name="5.0.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.0.1">5.0.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/5.0.0"
+                 data-name="5.0.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="5.0.0">5.0.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.10"
+                 data-name="4.2.10"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.10">4.2.10</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.9-1"
+                 data-name="4.2.9-1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.9-1">4.2.9-1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.9"
+                 data-name="4.2.9"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.9">4.2.9</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.8"
+                 data-name="4.2.8"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.8">4.2.8</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.7"
+                 data-name="4.2.7"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.7">4.2.7</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.6"
+                 data-name="4.2.6"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.6">4.2.6</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.5"
+                 data-name="4.2.5"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.5">4.2.5</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.4"
+                 data-name="4.2.4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.4">4.2.4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.3"
+                 data-name="4.2.3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.3">4.2.3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.2"
+                 data-name="4.2.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.2">4.2.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2.1"
+                 data-name="4.2.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2.1">4.2.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.2"
+                 data-name="4.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.2">4.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.1.2"
+                 data-name="4.1.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.1.2">4.1.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.1.1"
+                 data-name="4.1.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.1.1">4.1.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.1"
+                 data-name="4.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.1">4.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/4.0"
+                 data-name="4.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="4.0">4.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/3.2"
+                 data-name="3.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="3.2">3.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/3.1"
+                 data-name="3.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="3.1">3.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/3.0.2"
+                 data-name="3.0.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="3.0.2">3.0.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/3.0.1"
+                 data-name="3.0.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="3.0.1">3.0.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/3.0"
+                 data-name="3.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="3.0">3.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.3"
+                 data-name="2.3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.3">2.3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.2.1"
+                 data-name="2.2.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.2.1">2.2.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.2"
+                 data-name="2.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.2">2.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.1.4"
+                 data-name="2.1.4"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.1.4">2.1.4</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.1.3"
+                 data-name="2.1.3"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.1.3">2.1.3</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.1.2"
+                 data-name="2.1.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.1.2">2.1.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.1.1"
+                 data-name="2.1.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.1.1">2.1.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.1"
+                 data-name="2.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.1">2.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.0.2"
+                 data-name="2.0.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.0.2">2.0.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.0.1"
+                 data-name="2.0.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.0.1">2.0.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/2.0"
+                 data-name="2.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="2.0">2.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/1.1.1"
+                 data-name="1.1.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="1.1.1">1.1.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/1.1"
+                 data-name="1.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="1.1">1.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/1.0.2"
+                 data-name="1.0.2"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="1.0.2">1.0.2</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/1.0.1"
+                 data-name="1.0.1"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="1.0.1">1.0.1</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="/ghusse/jQRangeSlider/tree/1.0"
+                 data-name="1.0"
+                 data-skip-pjax="true"
+                 rel="nofollow"
+                 class="js-navigation-open select-menu-item-text css-truncate-target"
+                 title="1.0">1.0</a>
+            </div>
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <div class="breadcrumb"><span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/ghusse/jQRangeSlider" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">jQRangeSlider</span></a></span></span><span class="separator">/</span>
+    <a class="btn-link disabled tooltipped tooltipped-e" href="#" aria-label="You must be signed in to make or propose changes">
+      <span class="octicon octicon-plus"></span>
+    </a>
+</div>
+</div>
+
+
+
+
+
+  <div class="commit commit-tease js-details-container" >
+    <p class="commit-title ">
+        <a href="/ghusse/jQRangeSlider/commit/61c96a8124ffac214e17462bec6ceab51759c3ee" class="message" data-pjax="true" title="Update date">Update date</a>
+        
+    </p>
+    <div class="commit-meta">
+      <button aria-label="Copy SHA" class="js-zeroclipboard zeroclipboard-link tooltipped tooltipped-s" data-clipboard-text="61c96a8124ffac214e17462bec6ceab51759c3ee" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+      <a href="/ghusse/jQRangeSlider/commit/61c96a8124ffac214e17462bec6ceab51759c3ee" class="sha-block" data-pjax>latest commit <span class="sha">61c96a8124</span></a>
+
+      <div class="authorship">
+        <img alt="@ghusse" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/527245?v=3&amp;s=40" width="20" />
+        <span class="author-name"><a href="/ghusse" rel="author">ghusse</a></span>
+        authored <time class="updated" datetime="2015-01-23T20:25:40Z" is="relative-time">Jan 23, 2015</time>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="file-wrap">
+  <a href="/ghusse/jQRangeSlider/tree/61c96a8124ffac214e17462bec6ceab51759c3ee" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+  <table class="files" data-pjax>
+
+
+    <tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><span class="octicon octicon-alert"></span></td>
+        <td class="content" colspan="3">Failed to load latest commit information.</td>
+      </tr>
+
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-directory"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/tree/master/css" class="js-directory-link" id="c7a628cba22e28eb17b5f5c6ae2a266a-19674c5d5c64373ceeecb3ad98c80bc5022116bf" title="css">css</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/ghusse/jQRangeSlider/issues/124" class="issue-link" title="Slider values not equal to Slider position">#124</a> <a href="/ghusse/jQRangeSlider/commit/8bc3162e8c7f41f68e04b3d263ab9ac4c3ac6a21" class="message" data-pjax="true" title="#124 Slider and scale position don't line up">Slider and scale position don't line up</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-11-01T13:21:38Z" is="time-ago">Nov 1, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-directory"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/tree/master/demo" class="js-directory-link" id="fe01ce2a7fbac8fafaed7c982a04e229-4f5b3a514defaa52bc5afd48ee8f56f78dba7851" title="demo">demo</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/e97f024cdf82007c1b744682e937cef27dc7af05" class="message" data-pjax="true" title="Removed useless comment">Removed useless comment</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-10-31T13:35:25Z" is="time-ago">Oct 31, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-directory"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/tree/master/lib" class="js-directory-link" id="e8acc63b1e238f3255c900eed37254b8-6183336a19419589303637f1150eaed9e023ef8a" title="lib">lib</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/bf1a54760c70fc13fff7354f41d1bc0a3bf044e7" class="message" data-pjax="true" title="Removed jQuery, jQuery UI, QUnit files, replaced by CDN in demo and tests">Removed jQuery, jQuery UI, QUnit files, replaced by CDN in demo and t…</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-10-31T13:34:41Z" is="time-ago">Oct 31, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-directory"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/tree/master/tests" class="js-directory-link" id="b61a6d542f9036550ba9c401c80f00ef-b6ef096a93fd6c890555d5e7cad64f7ccf80c606" title="tests">tests</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/786c9ee1491c2d875b9319a0ba04efb7aea1a69f" class="message" data-pjax="true" title="Fix jshint error">Fix jshint error</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2015-01-23T20:24:43Z" is="time-ago">Jan 23, 2015</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/.gitignore" class="js-directory-link" id="a084b794bc0759e7a6b77810e01874f2-b1cdfdcfaacf3a69325badb7928b70aa8195435e" title=".gitignore">.gitignore</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/45eb2fec2ca52a2b68ba9606b93c95f8497d50a1" class="message" data-pjax="true" title="Grunt packaging">Grunt packaging</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-01-28T15:16:38Z" is="time-ago">Jan 28, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/.gitmodules" class="js-directory-link" id="8903239df476d7401cf9e76af0252622-e69de29bb2d1d6434b8b29ae775ad8c2e48c5391" title=".gitmodules">.gitmodules</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/23ed99e58252315379f7f5c7a3aa190c5eb3a6a4" class="message" data-pjax="true" title="Removed submodule">Removed submodule</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2011-03-04T23:14:31Z" is="time-ago">Mar 5, 2011</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/.jshintconfig" class="js-directory-link" id="b92d7370103d15e2c5b7da3a30f8d0eb-bd588f3dff3b5b42610083ed897957e9e9f86edd" title=".jshintconfig">.jshintconfig</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/110e1c98c329cc2356bd05519b56c30736657906" class="message" data-pjax="true" title="JSHint">JSHint</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-01-27T13:13:25Z" is="time-ago">Jan 27, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/.travis.yml" class="js-directory-link" id="354f30a63fb0907d4ad57269548329e3-7600cdc7c889aeecd1819d49cb08d984f89ad2a2" title=".travis.yml">.travis.yml</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/ae7c3dbcc11dea7dce9d77954c57616f803afba5" class="message" data-pjax="true" title="node version">node version</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-31T07:12:04Z" is="time-ago">Jul 31, 2014</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/GPL-License.txt" class="js-directory-link" id="1ea2b7b665619ade894ae42e11c0d0db-818433ecc0e094a4db1023c68b33f24344643ad8" title="GPL-License.txt">GPL-License.txt</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/06253c6ddc4f20c509ca66cd302ef41236b22b6f" class="message" data-pjax="true" title="Dual license and new version">Dual license and new version</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2012-02-23T21:03:25Z" is="time-ago">Feb 23, 2012</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/Gruntfile.js" class="js-directory-link" id="35b4a816e0441e6a375cd925af50752c-405ef1a405432172786c787b2ddadd369aee9470" title="Gruntfile.js">Gruntfile.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/96123c1c2f4bcb2f725d74f4353b39dec9736a56" class="message" data-pjax="true" title="Formatting">Formatting</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2015-01-23T20:17:39Z" is="time-ago">Jan 23, 2015</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/History.md" class="js-directory-link" id="e1bbd4f15e3b63427b4261e05b948ea8-7affef5a9e3022f2661b373a19fd5c43171aedc3" title="History.md">History.md</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/61c96a8124ffac214e17462bec6ceab51759c3ee" class="message" data-pjax="true" title="Update date">Update date</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2015-01-23T20:25:40Z" is="time-ago">Jan 23, 2015</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/MIT-License.txt" class="js-directory-link" id="f34c05ba50bd53f02ef363d28119f0d5-3024656d4bb3c260892e160aca15ce4d2d681cd5" title="MIT-License.txt">MIT-License.txt</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/06253c6ddc4f20c509ca66cd302ef41236b22b6f" class="message" data-pjax="true" title="Dual license and new version">Dual license and new version</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2012-02-23T21:03:25Z" is="time-ago">Feb 23, 2012</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/Readme.md" class="js-directory-link" id="1e290ac8433d555bce009b162cb869d0-fc23efda947be8d5d5b2e79aed19d754cb8a6c2b" title="Readme.md">Readme.md</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/49c167fbbd599b3f5e51c91d0292506c9404a4b8" class="message" data-pjax="true" title="jQRangeSlider also depends on jQuery UI mouse
+
+Instead of using the provided `jquery-ui-1.8.16.custom.min.js` file, I&#39;m using my own custom build. In doing so, I realized that jQRangeSlider also expects jQuery UI Mouse to be available. I&#39;ve added this to the Readme, but would you mind also adding this to the documentation?">jQRangeSlider also depends on jQuery UI mouse</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-08-29T21:30:35Z" is="time-ago">Aug 29, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQDateRangeSlider.js" class="js-directory-link" id="5102b389b49c4d264d362ea6f8b02d65-b678f56d65639e3918bb94c04bdd4be8a4cce86a" title="jQDateRangeSlider.js">jQDateRangeSlider.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/158186a8578213074a2e068fe18040a2602ca0f2" class="message" data-pjax="true" title="jshint">jshint</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2015-01-23T20:17:39Z" is="time-ago">Jan 23, 2015</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQDateRangeSliderHandle.js" class="js-directory-link" id="fcc069fb35fe15d79e4229c8028c841e-234d3a49b696acbf374edb24987641b9f7161d98" title="jQDateRangeSliderHandle.js">jQDateRangeSliderHandle.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/aa0f1defe00340bc045eeeea164881205d43c1bc" class="message" data-pjax="true" title="Update jQDateRangeSliderHandle.js
+
+Using negative Dates (BC), e.g. new Date(-400,0,1) as bounds crashed the whole slider in Firefox.
+In Firefox the following will create an &quot;Invalid Date&quot;: var a = new Date(-400,0,1); var b = new Date(a);
+So to clone the Date Object it is safer to use its valueOf than the Date-object itself.">Update jQDateRangeSliderHandle.js</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-30T17:50:38Z" is="time-ago">Jul 30, 2014</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQEditRangeSlider.js" class="js-directory-link" id="3bd84f9321f1a912b71f423e7c7b8b98-2f956a071063be72acb20cbd0dc0e7b91dec9622" title="jQEditRangeSlider.js">jQEditRangeSlider.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/ghusse/jQRangeSlider/issues/141" class="issue-link" title="editRangeSlider - 'userValuesChanged' event not firing when user edits values">#141</a> <a href="/ghusse/jQRangeSlider/commit/bffc60bbc2736af28a09381069098464147c4e9f" class="message" data-pjax="true" title="#141 userValuesChanged event not fired when user edits values in inputs.">userValuesChanged event not fired when user edits values in inputs.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-11-01T12:41:05Z" is="time-ago">Nov 1, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQEditRangeSliderLabel.js" class="js-directory-link" id="c7c1799d02ff650309284eab451f23b4-5dda78b6ad08ce7a1759a78675fafc3bdc43baa1" title="jQEditRangeSliderLabel.js">jQEditRangeSliderLabel.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/ea1be22370525a32132c9b16c72252c5dfb9c6fa" class="message" data-pjax="true" title="Fix whitespace issues.">Fix whitespace issues.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-24T13:54:13Z" is="time-ago">Jul 24, 2014</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRangeSlider.jquery.json" class="js-directory-link" id="652c46d55bb8a8fcef914353949b7347-f87a8755816b45b2fa85330acf4f2b5d3047e4e5" title="jQRangeSlider.jquery.json">jQRangeSlider.jquery.json</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/259db14deb6c7cce6826a43f11c66d77222ec9d5" class="message" data-pjax="true" title="fixed touch events for jquery-ui.1.11.x">fixed touch events for jquery-ui.1.11.x</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2015-01-20T15:50:25Z" is="time-ago">Jan 20, 2015</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRangeSlider.js" class="js-directory-link" id="82bb3862bd06586f6102662a505816b6-17840c439ed0db0316f5dd3df6dcb987de90c17c" title="jQRangeSlider.js">jQRangeSlider.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/a0b1d5b200960706f105dd45597d3076ce9622a0" class="message" data-pjax="true" title="Merge pull request #175 from fk/fix-whitespace
+
+Fix whitespace issues">Merge pull request</a> <a href="https://github.com/ghusse/jQRangeSlider/pull/175" class="issue-link" title="Fix whitespace issues">#175</a> <a href="/ghusse/jQRangeSlider/commit/a0b1d5b200960706f105dd45597d3076ce9622a0" class="message" data-pjax="true" title="Merge pull request #175 from fk/fix-whitespace
+
+Fix whitespace issues">from fk/fix-whitespace</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-31T14:45:16Z" is="time-ago">Jul 31, 2014</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRangeSliderBar.js" class="js-directory-link" id="4a2e103ce7013b8188e483a3a31bfda3-4103ba6007b77b34244101b69f5c5a3069de9cbc" title="jQRangeSliderBar.js">jQRangeSliderBar.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/ea1be22370525a32132c9b16c72252c5dfb9c6fa" class="message" data-pjax="true" title="Fix whitespace issues.">Fix whitespace issues.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-24T13:54:13Z" is="time-ago">Jul 24, 2014</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRangeSliderDraggable.js" class="js-directory-link" id="51ff96a90d2d230c3351093c842b809f-4496264026f5595dc9ae88e90d96005a00b82827" title="jQRangeSliderDraggable.js">jQRangeSliderDraggable.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/ghusse/jQRangeSlider/issues/108" class="issue-link" title="jQRangeSlider leaks memory even if 'destroy' is called">#108</a> <a href="/ghusse/jQRangeSlider/commit/663cea810c2d34a4c254a7d51c453274df3128c8" class="message" data-pjax="true" title="#108 memory leak when using destroy">memory leak when using destroy</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-04-20T11:59:29Z" is="time-ago">Apr 20, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRangeSliderHandle.js" class="js-directory-link" id="a3b764d7f3e9946b62b866c4179f277b-522a9efc04107e8937eb2fab2db92c91c53d0fb8" title="jQRangeSliderHandle.js">jQRangeSliderHandle.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/ea1be22370525a32132c9b16c72252c5dfb9c6fa" class="message" data-pjax="true" title="Fix whitespace issues.">Fix whitespace issues.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-24T13:54:13Z" is="time-ago">Jul 24, 2014</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRangeSliderLabel.js" class="js-directory-link" id="2b4caf9bad9ee664470fec807878e69a-a11a7b83f2a39f76c17460e08fd0fc54c1155dd6" title="jQRangeSliderLabel.js">jQRangeSliderLabel.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/ea1be22370525a32132c9b16c72252c5dfb9c6fa" class="message" data-pjax="true" title="Fix whitespace issues.">Fix whitespace issues.</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-24T13:54:13Z" is="time-ago">Jul 24, 2014</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRangeSliderMouseTouch.js" class="js-directory-link" id="7b24cf56ad95dca463eca827bfe67622-f4556e97be4716426eb44b9bb086fff57de11c16" title="jQRangeSliderMouseTouch.js">jQRangeSliderMouseTouch.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/259db14deb6c7cce6826a43f11c66d77222ec9d5" class="message" data-pjax="true" title="fixed touch events for jquery-ui.1.11.x">fixed touch events for jquery-ui.1.11.x</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2015-01-20T15:50:25Z" is="time-ago">Jan 20, 2015</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/jQRuler.js" class="js-directory-link" id="a096bfa42b4630418b675988de53fecc-d84070ceaf7f85f5ce34dab502c3a3f5d382e80c" title="jQRuler.js">jQRuler.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/633615e342df6f8cbf43c3244ea5d99f8111052b" class="message" data-pjax="true" title="Removed placeholder parameters from format default function
+formattedScale unit test format function, added non-effectual use of the endValue parameter, so that the parameter would still be present as an example but would not trigger warnings in JSHint">Removed placeholder parameters from format default function</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-03-09T16:13:00Z" is="time-ago">Mar 9, 2013</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="/ghusse/jQRangeSlider/blob/master/package.json" class="js-directory-link" id="b9cfc7f2cdf78a7f4b91a753d10865a2-b6cf990d87af235b08ea02600168c5df8183b1d5" title="package.json">package.json</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="/ghusse/jQRangeSlider/commit/259db14deb6c7cce6826a43f11c66d77222ec9d5" class="message" data-pjax="true" title="fixed touch events for jquery-ui.1.11.x">fixed touch events for jquery-ui.1.11.x</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2015-01-20T15:50:25Z" is="time-ago">Jan 20, 2015</time></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+  <div id="readme" class="boxed-group flush clearfix announce instapaper_body md">
+    <h3>
+      <span class="octicon octicon-book"></span>
+      Readme.md
+    </h3>
+
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-jqrangeslider-jqdaterangeslider--jqeditrangeslider-" class="anchor" href="#jqrangeslider-jqdaterangeslider--jqeditrangeslider-" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQRangeSlider, jQDateRangeSlider &amp; jQEditRangeSlider <a href="https://travis-ci.org/ghusse/jQRangeSlider"><img src="https://camo.githubusercontent.com/73106468d2ac566c1a441e038d789f11cf638301/68747470733a2f2f7472617669732d63692e6f72672f6768757373652f6a5152616e6765536c696465722e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ghusse/jQRangeSlider.png?branch=master" style="max-width:100%;"></a></h1>
+
+<p>A javascript slider selector that supports dates and touch devices</p>
+
+<ul>
+<li><a href="http://ghusse.github.com/jQRangeSlider/">Home page</a></li>
+<li><a href="http://ghusse.github.com/jQRangeSlider/documentation.html">Documentation</a></li>
+<li><a href="https://jqrangeslider.uservoice.com/">Support &amp; suggestions</a></li>
+<li><a href="https://github.com/ghusse/jQRangeSlider/">Github</a></li>
+<li><a href="https://twitter.com/jQRangeSlider">Twitter</a></li>
+</ul>
+
+<h2><a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright : Guillaume Gautreau 2010
+License : Dual license GPL v3 and MIT</p>
+
+<h2><a id="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>jQuery</li>
+<li>jQuery UI core</li>
+<li>jQuery UI widget</li>
+<li>jQuery UI mouse</li>
+<li>jQuery Mousewheel plugin by Brandon Aaron (optional, needed for scrolling or zooming)</li>
+</ul>
+
+<h2><a id="user-content-generating-minified-jqrangeslider-files" class="anchor" href="#generating-minified-jqrangeslider-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generating minified jQRangeSlider files</h2>
+
+<p>You need nodejs and npm. Open a command line interface and run:</p>
+
+<pre><code> npm install
+ npm install -g grunt-cli
+</code></pre>
+
+<p>Now you can minify jQRangeSlider and build a zip package by running</p>
+
+<pre><code> grunt
+</code></pre>
+
+<p>You can launch jshint and unit tests too:</p>
+
+<pre><code> grunt ci
+</code></pre>
+</article>
+  </div>
+
+
+        </div>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+  </div>
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+        <li><a href="https://github.com/pricing" data-ga-click="Footer, go to pricing, text:pricing">Pricing</a></li>
+
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+</a>
+    <ul class="site-footer-links">
+      <li>&copy; 2015 <span title="0.07559s from github-fe128-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder="" aria-label=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w"
+      aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    
+    
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-d57b85eb0208f46172d97d4746c78b19441b324803d3cc53d37e5a405f584b6d.js"></script>
+      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github/index-6a674366e1a2a508a2f63b74540b455873cc9feaa76663b11b7c47114c7b2c7b.js"></script>
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
+      <span class="octicon octicon-alert"></span>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+  </body>
+</html>
+

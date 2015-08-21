@@ -14,6 +14,7 @@
     "jquery": "1.10.2",
     "jquery-ui": "~1.11.4",
     "chosen": "1.4.2",
-    "trianglify": "0.2.1"
+    "trianglify": "0.2.1",
+    "jQRangeSlider": "https://github.com/ghusse/jQRangeSlider"
   }
 }
