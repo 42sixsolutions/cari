@@ -5,20 +5,32 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
 
     var initMapObject = function(geoJson, callback) {
         // init map object
-        mapObject = new google.maps.Map(document.getElementById('map'), {
-            mapTypeId:  [google.maps.MapTypeId.TERRAIN, 'map_style']
-        });
+        var mapOptions = {
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.TERRAIN]
+            }
+        };
+
+        mapObject = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         // load data
         mapObject.data.addGeoJson(geoJson);
 
         /* Listeners */
+        var infoWindow;
+
+        // double click to zoom into area
+        //mapObject.addListener('dblclick', function(event){
+        //    if(mapObject.getZoom() < 8) {
+        //        mapObject.setZoom(14);
+        //    };
+        //    console.log(mapObject.getZoom());
+        //});
+
         // wait till map loads then center it
         google.maps.event.addListenerOnce(mapObject, 'idle', function() {
             setCenter();
         });
-
-        var infoWindow;
 
         // for each marker add tooltip message
         mapObject.data.addListener('mouseover', function(event){
@@ -41,12 +53,14 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
             });
         });
 
+        // remove window info when mouse rolls out
         mapObject.data.addListener('mouseout', function(event) {
             if(angular.isDefined(infoWindow)) {
                 infoWindow.close();
             };
         });
 
+        // display detail report about the poi
         mapObject.data.addListener('click', function(event) {
             callback(event.feature.getProperty('events'));
         });
@@ -79,37 +93,16 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
     };
 
     var setCustomStyle = function() {
-        var styledMap = style();
+        //globalStyle();
 
-        mapObject.mapTypes.set('map_style', styledMap);
-        mapObject.setMapTypeId('map_style');
+        function perFeatureStyle() {
 
-        function style() {
-            // Create an array of styles.
-            var styles = [
-                {
-                    stylers: [
-                        { hue: "#00ffe6" },
-                        { saturation: -20 }
-                    ]
-                },{
-                    featureType: "road",
-                    elementType: "geometry",
-                    stylers: [
-                        { lightness: 100 },
-                        { visibility: "simplified" }
-                    ]
-                },{
-                    featureType: "road",
-                    elementType: "labels",
-                    stylers: [
-                        { visibility: "off" }
-                    ]
-                }
-            ];
+        };
 
-            return new google.maps.StyledMapType(styles,
-                {name: "Styled Map"});
+        function globalStyle() {
+            mapObject.data.setStyle(function(feature) {
+                return ({icon: 'images/marker/1.png'});
+            });
 
         };
     };
