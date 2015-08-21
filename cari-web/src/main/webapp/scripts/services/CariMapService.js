@@ -6,12 +6,11 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
     var initMapObject = function(geoJson, callback) {
         // init map object
         mapObject = new google.maps.Map(document.getElementById('map'), {
-            mapTypeId:  google.maps.MapTypeId.TERRAIN
+            mapTypeId:  [google.maps.MapTypeId.TERRAIN, 'map_style']
         });
 
         // load data
         mapObject.data.addGeoJson(geoJson);
-
 
         /* Listeners */
         // wait till map loads then center it
@@ -74,6 +73,45 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
             
             mapObject.fitBounds(bounds);
         };
+
+
+
+    };
+
+    var setCustomStyle = function() {
+        var styledMap = style();
+
+        mapObject.mapTypes.set('map_style', styledMap);
+        mapObject.setMapTypeId('map_style');
+
+        function style() {
+            // Create an array of styles.
+            var styles = [
+                {
+                    stylers: [
+                        { hue: "#00ffe6" },
+                        { saturation: -20 }
+                    ]
+                },{
+                    featureType: "road",
+                    elementType: "geometry",
+                    stylers: [
+                        { lightness: 100 },
+                        { visibility: "simplified" }
+                    ]
+                },{
+                    featureType: "road",
+                    elementType: "labels",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                }
+            ];
+
+            return new google.maps.StyledMapType(styles,
+                {name: "Styled Map"});
+
+        };
     };
 
     var getMapObject = function() {
@@ -82,6 +120,7 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
 
     return {
         initMapObject: initMapObject,
+        setCustomStyle: setCustomStyle,
         getMapObject: getMapObject
     };
 }]);
