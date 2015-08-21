@@ -3,6 +3,8 @@
 angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout", "CariMapService", "Query",
         function($scope, $timeout, CariMapService, Query) {
 
+    $scope.chartOptions = {};
+    $scope.chartData = [];
     Query.list().then(function(response) {
         $scope.chartOptions = {
             xmin: response.data.firstDate,
@@ -10,7 +12,6 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
             ymin: 0,
             ymax: 50
         };
-        $scope.chartData = [];
 
         var tmpChartData = [];
         tmpChartData.push({
