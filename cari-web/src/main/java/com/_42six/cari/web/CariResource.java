@@ -5,10 +5,12 @@ import java.text.ParseException;
 
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.geojson.FeatureCollection;
@@ -16,6 +18,7 @@ import org.geojson.FeatureCollection;
 import com._42six.cari.services.model.InvalidRequestException;
 import com._42six.cari.services.model.Parameters;
 import com._42six.cari.services.model.QueryRequest;
+import com._42six.cari.services.model.QueryRequest.ViewType;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
@@ -45,8 +48,9 @@ public class CariResource extends CommonResource {
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
     public FeatureCollection getAllFeatures(
+    		@DefaultValue("latest") @QueryParam("viewType") ViewType viewType
     		) throws IOException, InvalidRequestException {
-    	return responseTranslator.getAllFeatures();
+    	return responseTranslator.getAllFeatures(viewType);
     }
 	
 	@GET

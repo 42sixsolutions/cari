@@ -36,6 +36,8 @@ public class ResponseTranslator {
 	private List<MeasurementRecord> recordList;
 	private final Parameters parameters;
 	
+	private static final String ICON_PATH = "../images/marker/%d.png";
+	
 	public ResponseTranslator(InputStream inputCsv) throws IOException, ParseException {
 		CariCsvReader reader = new CariCsvReader();
 		this.recordList = Collections.unmodifiableList(reader.toRecordList(MeasurementRecord.FIELD_LIST, inputCsv));
@@ -87,8 +89,8 @@ public class ResponseTranslator {
 		return instance;
 	}
 	
-	public FeatureCollection getAllFeatures() throws IOException {
-		return toGeoJson(this.recordList, ViewType.latest);
+	public FeatureCollection getAllFeatures(ViewType viewType) throws IOException {
+		return toGeoJson(this.recordList, viewType);
 	}
 
 	public FeatureCollection toGeoJson(List<MeasurementRecord> recordList, ViewType viewType) throws IOException {
@@ -145,8 +147,6 @@ public class ResponseTranslator {
 			String contaminant = record.get(MeasurementField.ANALYTE_NAME.toString());
 			//contaminantSet.add(contaminant);
 			
-			
-			
 			//set events
 			Map<String, Object> propertyMap = new HashMap<String, Object>();
 			propertyMapList.add(propertyMap);
@@ -158,8 +158,6 @@ public class ResponseTranslator {
 			//System.out.println(this.parameters.getMaxFinalResult().get(contaminant));
 			double weightedContaminationValue = record.getWeightedContaminantValue(this.parameters.getMaxFinalResult().get(contaminant));
 			propertyMap.put("weightedContaminationValue", weightedContaminationValue);
-			
-			
 			
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(record.getSampleDate());
@@ -183,12 +181,12 @@ public class ResponseTranslator {
 			//TODO:
 		}
 		summaryMap.put("locationZones", locationZoneSet);
-		//summaryMap.put("contaminants", contaminantSet); //remove per Ted
-		summaryMap.put("contaminationValue", calculateContaminationValue(weightedContaminationByDate, viewType));	
+		double contaminationValue = calculateContaminationValue(weightedContaminationByDate, viewType);
+		summaryMap.put("contaminationValue", contaminationValue);
+		summaryMap.put("icon", String.format(ICON_PATH, (int) Math.round(contaminationValue * 10)));
 		
 		feature.setProperty("events", propertyMapList);
 		feature.setProperty("summary", summaryMap);
-		//TODO: tooltips
 		
 		return feature;
 	}

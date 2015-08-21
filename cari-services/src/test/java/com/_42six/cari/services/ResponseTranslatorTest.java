@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com._42six.cari.services.model.QueryRequest.ViewType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -26,14 +27,17 @@ public class ResponseTranslatorTest {
 	
 	@Test
 	public void testGetAllFeatures() throws IOException {
-		FeatureCollection featureCollection = responseTranslator.getAllFeatures();
-		Assert.assertEquals(113, featureCollection.getFeatures().size());
+		FeatureCollection featureCollectionLatest = responseTranslator.getAllFeatures(ViewType.latest);
+		Assert.assertEquals(113, featureCollectionLatest.getFeatures().size());
+		
+		FeatureCollection featureCollectionLast = responseTranslator.getAllFeatures(ViewType.highest);
+		Assert.assertEquals(113, featureCollectionLast.getFeatures().size());
 	}
 	
 	@Ignore
 	@Test
 	public void createGeoJsonForAllFeatures() throws IOException {
-		FeatureCollection featureCollection = responseTranslator.getAllFeatures();
+		FeatureCollection featureCollection = responseTranslator.getAllFeatures(ViewType.latest);
 		new ObjectMapper().writeValue(new File("src/test/resources/json/SampleData-FirstCut-gjson.json"), featureCollection);
 	}
 

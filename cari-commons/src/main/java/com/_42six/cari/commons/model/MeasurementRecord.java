@@ -64,8 +64,10 @@ public class MeasurementRecord extends HashMap<String, String> {
 		LOCATION_ZONE(true),
 		LATITUDE(true),
 		LONGITUDE(true),
-		//TOP_DEPTH(),
-		//BOTTOM_DEPTH(),
+		TOP_DEPTH(false),
+		BOTTOM_DEPTH(false),
+		TOP_DEPTH_UNITS(false),
+		BOTTOM_DEPTH_UNITS(false),
 		FINAL_RESULT(false),
 		RESULT_UNITS(true);
 		
