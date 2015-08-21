@@ -14,7 +14,7 @@ angular.module('cari', [
 ])
 
 .constant('timelineConfig', {
-	minBoundDate: new Date(2013, 11, 1),
+	minBoundDate: new Date(2014, 11, 1),
 	maxBoundDate: new Date(),
 	minDefaultDate: new Date(2015, 1, 10),
 	maxDefaultDate: new Date()
