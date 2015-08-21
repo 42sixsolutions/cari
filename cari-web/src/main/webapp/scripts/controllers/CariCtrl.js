@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
-        function($scope, Query) {
+angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout", "CariMapService", "Query",
+        function($scope, $timeout, CariMapService, Query) {
 
     $scope.lists = {
         "contaminants": [
@@ -27,9 +27,40 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "Query",
         "viewType": "latest"
     };
 
+    $scope.selected = {};
+
+    var now = new Date().getTime();
+    var before = new Date();
+    before = before.setDate(before.getDate() - 2);
+
+    $scope.chartOptions = {
+        xmin: before,
+        xmax: now,
+        ymin: 0,
+        ymax: 50
+    };
+    $scope.chartData = [];
+
+    var tmpChartData = [];
+    tmpChartData.push({
+        data: [[now, 12], [before, 36]],
+        points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.5)" },
+        lines: { show: false }
+    });
+    $scope.chartData = tmpChartData;
+
+    $scope.updateReport = function(data) {
+        $scope.selected.data = data;
+        $scope.$apply();
+    };
+
     $scope.apply = function() {
         Query.postQuery($scope.options).then(function(response) {
-            console.log(response.data);
+            CariMapService.initMapObject(response.data, $scope.updateReport);
         });
     };
+
+    $timeout(function() {
+        $scope.apply();
+    });
 }]);
