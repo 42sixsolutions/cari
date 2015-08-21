@@ -58,9 +58,8 @@ directive('lineChart', [function() {
                                 break;
                             }
                         }
-                        tooltip += pointData[2].data;
-                    } else {
-                        tooltip += Math.round(item.datapoint[1]);
+                        tooltip += "<div>" + pointData[2].data + "</div>";
+                        tooltip += "<div>" + pointData[2].value + "</div>";
                     }
 
                     tooltip += "</div>";
