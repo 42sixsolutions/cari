@@ -53,7 +53,7 @@ directive('lineChart', [function() {
                         var pointData;
                         var length = item.series.data.length;
                         for (var i = 0; i < length; i++) {
-                            if (item.datapoint[0] === (new Date(item.series.data[i][0])).valueOf()) {
+                            if (item.datapoint[1] === (new Date(item.series.data[i][1])).valueOf()) {
                                 pointData = item.series.data[i];
                                 break;
                             }
@@ -90,6 +90,10 @@ directive('lineChart', [function() {
                         },
                         curvedLines: {
                             active: true
+                        },
+                        bubbles: {
+                            active: true,
+                            show: true
                         },
                         clickable: true,
                         hoverable: true,
