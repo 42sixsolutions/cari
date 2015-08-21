@@ -55,10 +55,25 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
 
         var values = [];
         for (var i = 0; i < data.length; i++) {
-            var dataPoint = [new Date(data[i]["SAMPLE_DATE_TIME"]).getTime(), $.inArray(data[i]["ANALYTE_NAME"], contaminants), { "data": data[i]["ANALYTE_NAME"], "value": data[i]["FINAL_RESULT"] }];
-            var contaminationLevel = Math.floor((data[i]["weightedContaminationValue"] + 0.1) * 10);
-            for (var j = 0; j < contaminationLevel; j++) {
-                values.push(dataPoint);
+            var pointDate = new Date(data[i]["SAMPLE_DATE_TIME"]).getTime();
+            var pointContaminant = data[i]["ANALYTE_NAME"];
+            var shouldAddPoint = true;
+            // If the same contaminant was tested more than once at the same date/time, take the highest contamination
+            for (var j = i + 1; j < data.length; j++) {
+                if (i === j) {
+                    continue;
+                }
+                if (pointContaminant === data[j]["ANALYTE_NAME"] && data[i]["FINAL_RESULT"] <= data[j]["FINAL_RESULT"]) {
+                    shouldAddPoint = false;
+                    break;
+                }
+            }
+            if (shouldAddPoint) {
+                var dataPoint = [pointDate, $.inArray(pointContaminant, contaminants), { "data": data[i]["ANALYTE_NAME"], "value": data[i]["FINAL_RESULT"] }];
+                var contaminationLevel = Math.floor((data[i]["weightedContaminationValue"] + 0.1) * 10);
+                for (var j = 0; j < contaminationLevel; j++) {
+                    values.push(dataPoint);
+                }
             }
         }
 
