@@ -13,13 +13,35 @@ public class MeasurementRecord extends HashMap<String, String> {
 	public static final List<Field> FIELD_LIST = createFieldList();
 
 	private final Date sampleDate;
+	private final double roundedLat;
+	private final double roundedLon;
 	
-	public MeasurementRecord(Date sampleDate)  {
+	public MeasurementRecord(Date sampleDate, double roundedLat, double roundedLon)  {
 		this.sampleDate = sampleDate;
+		this.roundedLat = roundedLat;
+		this.roundedLon = roundedLon;
 	}
 	
 	public Date getSampleDate() {
 		return sampleDate;
+	}
+
+	public double getRoundedLat() {
+		return roundedLat;
+	}
+
+	public double getRoundedLon() {
+		return roundedLon;
+	}
+	
+	public double getFinalResultNormalized() {
+		String finalResult = this.get(MeasurementField.FINAL_RESULT.toString());
+		//TODO: normalize?
+		return finalResult != null && !finalResult.isEmpty() ? Double.parseDouble(finalResult) : 0;
+	}
+	
+	public double getWeightedContaminantValue(Double maxContamination) {
+		return maxContamination == null || maxContamination == 0 ? 0 : this.getFinalResultNormalized() / maxContamination;
 	}
 
 	private static List<Field> createFieldList() {
@@ -42,9 +64,11 @@ public class MeasurementRecord extends HashMap<String, String> {
 		LOCATION_ZONE(true),
 		LATITUDE(true),
 		LONGITUDE(true),
-		//TOP_DEPTH(),
-		//BOTTOM_DEPTH(),
-		FINAL_RESULT(true),
+		TOP_DEPTH(false),
+		BOTTOM_DEPTH(false),
+		TOP_DEPTH_UNITS(false),
+		BOTTOM_DEPTH_UNITS(false),
+		FINAL_RESULT(false),
 		RESULT_UNITS(true);
 		
 		private final boolean isMandatory;

@@ -3,6 +3,17 @@
 angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout", "CariMapService", "Query",
         function($scope, $timeout, CariMapService, Query) {
 
+    $scope.chartOptions = {};
+    $scope.chartData = [];
+    Query.list().then(function(response) {
+        $scope.chartOptions = {
+            xmin: response.data.firstDate,
+            xmax: response.data.lastDate,
+            ymin: 0,
+            ymax: 50
+        };
+    });
+
     $scope.lists = {
         "contaminants": [
             { "name": "Arsenic", "value": "arsenic" },
@@ -29,28 +40,22 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
 
     $scope.selected = {};
 
-    var now = new Date().getTime();
-    var before = new Date();
-    before = before.setDate(before.getDate() - 2);
-
-    $scope.chartOptions = {
-        xmin: before,
-        xmax: now,
-        ymin: 0,
-        ymax: 50
-    };
-    $scope.chartData = [];
-
-    var tmpChartData = [];
-    tmpChartData.push({
-        data: [[now, 12], [before, 36]],
-        points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.5)" },
-        lines: { show: false }
-    });
-    $scope.chartData = tmpChartData;
-
-    $scope.updateReport = function(data) {
+    $scope.update = function(data) {
         $scope.selected.data = data;
+        console.log(data);
+
+        var values = [];
+        for (var i = 0; i < data.length; i++) {
+            values.push([new Date(data[i]["SAMPLE_DATE_TIME"]).getTime(), data[i]["FINAL_RESULT"]]);
+        }
+
+        var tmpChartData = [];
+        tmpChartData.push({
+            data: values,
+            points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.5)" },
+            lines: { show: false }
+        });
+        $scope.chartData = tmpChartData;
         $scope.$apply();
     };
 

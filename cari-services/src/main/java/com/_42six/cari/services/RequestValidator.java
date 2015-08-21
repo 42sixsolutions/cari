@@ -9,6 +9,9 @@ public class RequestValidator {
 		if (request == null) {
 			throw new InvalidRequestException("QueryRequest cannot be null");
 		}
+		if (request.getViewType() == null) {
+			throw new InvalidRequestException("Parameter [viewType] cannot be null");
+		}
 		//TODO: more validation?
 	}
 
