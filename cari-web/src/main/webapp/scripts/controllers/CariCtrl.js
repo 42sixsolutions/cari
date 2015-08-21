@@ -10,7 +10,7 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
             xmin: response.data.firstDate,
             xmax: response.data.lastDate,
             ymin: 0,
-            ymax: 50
+            ymax: 100
         };
     });
 
@@ -44,15 +44,25 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
         $scope.selected.data = data;
         console.log(data);
 
+        var contaminants = [];
+        for (var i = 0; i < data.length; i++) {
+            var contaminant = data[i]["ANALYTE_NAME"];
+            if ($.inArray(contaminant, contaminants) === -1) {
+                contaminants.push(contaminant);
+            }
+        }
+        $scope.chartOptions.ymax = contaminants.length;
+
         var values = [];
         for (var i = 0; i < data.length; i++) {
-            values.push([new Date(data[i]["SAMPLE_DATE_TIME"]).getTime(), data[i]["FINAL_RESULT"]]);
+            values.push([new Date(data[i]["SAMPLE_DATE_TIME"]).getTime(), $.inArray(data[i]["ANALYTE_NAME"], contaminants), { "data": data[i]["ANALYTE_NAME"] + data[i]["FINAL_RESULT"] }]);
         }
 
+        var index = 0;
         var tmpChartData = [];
         tmpChartData.push({
             data: values,
-            points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.5)" },
+            points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.1)" },
             lines: { show: false }
         });
         $scope.chartData = tmpChartData;
