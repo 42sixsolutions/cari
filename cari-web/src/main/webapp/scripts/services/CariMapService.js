@@ -5,21 +5,33 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
 
     var initMapObject = function(geoJson, callback) {
         // init map object
-        mapObject = new google.maps.Map(document.getElementById('map'), {
-            mapTypeId:  google.maps.MapTypeId.TERRAIN
-        });
+        var mapOptions = {
+            //zoom: 5,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.TERRAIN]
+            }
+        };
+
+        mapObject = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         // load data
         mapObject.data.addGeoJson(geoJson);
 
-
         /* Listeners */
+        var infoWindow;
+
+        // double click to zoom into area
+        //mapObject.addListener('dblclick', function(event){
+        //    if(mapObject.getZoom() < 8) {
+        //        mapObject.setZoom(14);
+        //    };
+        //    console.log(mapObject.getZoom());
+        //});
+
         // wait till map loads then center it
         google.maps.event.addListenerOnce(mapObject, 'idle', function() {
             setCenter();
         });
-
-        var infoWindow;
 
         // for each marker add tooltip message
         mapObject.data.addListener('mouseover', function(event){
@@ -42,10 +54,14 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
             });
         });
 
+        // remove window info when mouse rolls out
         mapObject.data.addListener('mouseout', function(event) {
-            infoWindow.close();
+            if(angular.isDefined(infoWindow)) {
+                infoWindow.close();
+            };
         });
 
+        // display detail report about the poi
         mapObject.data.addListener('click', function(event) {
             callback(event.feature.getProperty('events'));
         });
@@ -72,6 +88,16 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
             
             mapObject.fitBounds(bounds);
         };
+
+
+
+    };
+
+    var setCustomStyle = function() {
+        mapObject.data.setStyle(function(feature) {
+            console.log(feature.getProperty('summary')['icon']);
+            return ({icon: feature.getProperty('summary')['icon']});
+        });
     };
 
     var getMapObject = function() {
@@ -80,6 +106,7 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
 
     return {
         initMapObject: initMapObject,
+        setCustomStyle: setCustomStyle,
         getMapObject: getMapObject
     };
 }]);
