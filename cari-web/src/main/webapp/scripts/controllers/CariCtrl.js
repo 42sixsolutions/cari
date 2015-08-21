@@ -12,14 +12,6 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
             ymin: 0,
             ymax: 50
         };
-
-        var tmpChartData = [];
-        tmpChartData.push({
-            data: [[$scope.chartOptions.xmin, 12], [$scope.chartOptions.xmax, 36]],
-            points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.5)" },
-            lines: { show: false }
-        });
-        $scope.chartData = tmpChartData;
     });
 
     $scope.lists = {
@@ -56,6 +48,14 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
     $scope.apply = function() {
         Query.postQuery($scope.options).then(function(response) {
             CariMapService.initMapObject(response.data, $scope.updateReport);
+
+            var tmpChartData = [];
+            tmpChartData.push({
+                data: [[$scope.chartOptions.xmin, 12], [$scope.chartOptions.xmax, 36]],
+                points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.5)" },
+                lines: { show: false }
+            });
+            $scope.chartData = tmpChartData;
         });
     };
 
