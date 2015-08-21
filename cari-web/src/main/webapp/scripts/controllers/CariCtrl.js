@@ -34,10 +34,6 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
 
     $scope.selected = {};
 
-    var now = new Date().getTime();
-    var before = new Date();
-    before = before.setDate(before.getDate() - 2);
-
     $scope.chartOptions = {
         xmin: $scope.list.firstDate,
         xmax: $scope.list.lastDate,
@@ -48,7 +44,7 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
 
     var tmpChartData = [];
     tmpChartData.push({
-        data: [[now, 12], [before, 36]],
+        data: [[$scope.chartOptions.xmin, 12], [$scope.chartOptions.xmax, 36]],
         points: { show: true, radius: 6, lineWidth: 0, fill: true, fillColor: "rgba(255,0,205,0.5)" },
         lines: { show: false }
     });
