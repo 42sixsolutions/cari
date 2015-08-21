@@ -3,6 +3,11 @@
 angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout", "CariMapService", "Query",
         function($scope, $timeout, CariMapService, Query) {
 
+    $scope.list = {};
+    Query.list().then(function(response) {
+        $scope.list = response.data;
+    });
+
     $scope.lists = {
         "contaminants": [
             { "name": "Arsenic", "value": "arsenic" },
@@ -34,8 +39,8 @@ angular.module('cari.controllers').controller('CariCtrl', ["$scope", "$timeout",
     before = before.setDate(before.getDate() - 2);
 
     $scope.chartOptions = {
-        xmin: before,
-        xmax: now,
+        xmin: $scope.list.firstDate,
+        xmax: $scope.list.lastDate,
         ymin: 0,
         ymax: 50
     };

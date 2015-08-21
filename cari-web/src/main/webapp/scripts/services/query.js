@@ -5,7 +5,12 @@ angular.module('cari.services').factory('Query', ['$http', function($http) {
         return $http.post('api/query/', options);
     };
 
+    var list = function() {
+        return $http.get('api/list/');
+    };
+
     return {
-        postQuery: postQuery
+        postQuery: postQuery,
+        list: list
     };
 }]);
