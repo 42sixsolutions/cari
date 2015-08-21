@@ -45,7 +45,7 @@ angular.module('cari.services').factory('CariMapService', ['$http', function($ht
         mapObject.data.addListener('mouseout', function(event) {
             if(angular.isDefined(infoWindow)) {
                 infoWindow.close();
-            }
+            };
         });
 
         mapObject.data.addListener('click', function(event) {
